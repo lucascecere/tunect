@@ -7,7 +7,7 @@ function PhoneMockup() {
   return (
     <div className="animate-float relative mx-auto w-[260px]">
       {/* Outer glow */}
-      <div className="animate-glow-pulse absolute inset-0 -z-10 scale-110 rounded-[44px] bg-[#1A56DB]/20 blur-2xl" />
+      <div className="animate-glow-pulse absolute inset-0 -z-10 scale-110 rounded-[44px] bg-[#FF2D78]/25 blur-2xl" />
 
       {/* Phone frame */}
       <div className="relative rounded-[40px] border border-white/10 bg-[#0D0D0D] p-2 shadow-2xl">
@@ -27,20 +27,20 @@ function PhoneMockup() {
           <div className="px-4 pb-4 pt-2 space-y-3">
             {/* Avatar + name */}
             <div className="flex items-center gap-3">
-              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#1A56DB] to-[#7C3AED] flex items-center justify-center text-white text-lg font-bold shrink-0">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#FF2D78] to-[#A855F7] flex items-center justify-center text-white text-lg font-bold shrink-0">
                 A
               </div>
               <div>
                 <p className="text-white text-sm font-semibold leading-tight">Alex Rivera</p>
                 <p className="text-[#A0A0A0] text-xs">@alexrivera</p>
-                <p className="text-[#3B82F6] text-[10px] font-medium mt-0.5">Genre Fluid</p>
+                <p className="text-[10px] font-medium mt-0.5" style={{ background: "linear-gradient(90deg, #FF2D78, #A855F7)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Genre Fluid</p>
               </div>
             </div>
 
             {/* Now playing */}
-            <div className="rounded-xl bg-[#141414] p-3 flex items-center gap-2.5 border border-[#2A2A2A]">
-              <div className="animate-pulse-dot h-2 w-2 rounded-full bg-[#3B82F6] shrink-0" />
-              <div className="h-9 w-9 rounded-md bg-gradient-to-br from-purple-600 to-pink-500 shrink-0" />
+            <div className="rounded-xl bg-[#141414] p-3 flex items-center gap-2.5 border border-[#FF2D78]/20">
+              <div className="animate-pulse-dot h-2 w-2 rounded-full bg-[#FF2D78] shrink-0" />
+              <div className="h-9 w-9 rounded-md bg-gradient-to-br from-[#FF2D78] to-[#A855F7] shrink-0" />
               <div className="min-w-0">
                 <p className="text-white text-[11px] font-medium truncate">Blinding Lights</p>
                 <p className="text-[#A0A0A0] text-[10px] truncate">The Weeknd</p>
@@ -57,9 +57,9 @@ function PhoneMockup() {
               <p className="text-[#A0A0A0] text-[10px] font-medium uppercase tracking-wider mb-2">Top Artists</p>
               <div className="space-y-2">
                 {[
-                  { name: "The Weeknd", color: "from-purple-600 to-pink-500" },
+                  { name: "The Weeknd", color: "from-[#FF2D78] to-[#A855F7]" },
                   { name: "Arctic Monkeys", color: "from-yellow-600 to-orange-500" },
-                  { name: "Frank Ocean", color: "from-blue-500 to-cyan-400" },
+                  { name: "Frank Ocean", color: "from-cyan-500 to-teal-400" },
                 ].map((artist) => (
                   <div key={artist.name} className="flex items-center gap-2.5">
                     <div className={`h-7 w-7 rounded-md bg-gradient-to-br ${artist.color} shrink-0`} />
@@ -85,8 +85,8 @@ function PhoneMockup() {
                     </div>
                     <div className="h-1 rounded-full bg-[#2A2A2A] overflow-hidden">
                       <div
-                        className="h-full rounded-full bg-[#1A56DB]"
-                        style={{ width: `${pct}%` }}
+                        className="h-full rounded-full"
+                        style={{ width: `${pct}%`, background: "linear-gradient(90deg, #FF2D78, #A855F7)" }}
                       />
                     </div>
                   </div>
@@ -101,10 +101,9 @@ function PhoneMockup() {
               <div
                 key={i}
                 className={`flex h-7 w-7 items-center justify-center rounded-full text-xs ${
-                  i === 2
-                    ? "bg-[#1A56DB] text-white"
-                    : "text-[#505050]"
+                  i === 2 ? "text-white" : "text-[#505050]"
                 }`}
+                style={i === 2 ? { background: "linear-gradient(135deg, #FF2D78, #A855F7)" } : {}}
               >
                 {icon}
               </div>
@@ -122,30 +121,41 @@ function CompatibilityCardDemo() {
   return (
     <div className="relative mx-auto max-w-sm w-full">
       {/* glow */}
-      <div className="absolute inset-0 -z-10 rounded-2xl bg-[#22C55E]/10 blur-xl" />
+      <div className="absolute inset-0 -z-10 rounded-2xl bg-[#FF2D78]/15 blur-xl" />
 
-      <div className="rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6">
+      <div className="rounded-2xl border border-[#FF2D78]/20 bg-[#141414] p-6">
         <div className="flex items-center gap-4 mb-5">
           {/* Avatar A */}
-          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#1A56DB] to-[#7C3AED] flex items-center justify-center text-white font-bold shrink-0">
+          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#FF2D78] to-[#A855F7] flex items-center justify-center text-white font-bold shrink-0">
             Y
           </div>
           {/* Score */}
           <div className="flex-1 text-center">
-            <div className="text-[42px] font-bold leading-none" style={{ color: "#22C55E", fontFamily: "var(--font-dm-sans)" }}>
+            <div
+              className="text-[42px] font-bold leading-none"
+              style={{
+                background: "linear-gradient(135deg, #FF2D78, #A855F7)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: "var(--font-dm-sans)",
+              }}
+            >
               94%
             </div>
             <div className="text-[#A0A0A0] text-xs mt-1">compatible</div>
           </div>
           {/* Avatar B */}
-          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center text-white font-bold shrink-0">
+          <div className="h-12 w-12 rounded-full bg-gradient-to-br from-orange-500 to-[#FF2D78] flex items-center justify-center text-white font-bold shrink-0">
             A
           </div>
         </div>
 
         {/* Score bar */}
         <div className="h-1.5 rounded-full bg-[#2A2A2A] overflow-hidden mb-4">
-          <div className="h-full w-[94%] rounded-full bg-gradient-to-r from-[#22C55E] to-[#3B82F6]" />
+          <div
+            className="h-full w-[94%] rounded-full"
+            style={{ background: "linear-gradient(90deg, #FF2D78, #A855F7)" }}
+          />
         </div>
 
         {/* Stats */}
@@ -184,8 +194,11 @@ export default function Home() {
           <Logo size={36} />
           <a
             href="#waitlist"
-            className="rounded-full bg-[#1A56DB] px-5 py-2 text-sm font-medium text-white transition-all hover:bg-[#1648c0] active:scale-95"
-            style={{ fontFamily: "var(--font-dm-sans)" }}
+            className="rounded-full px-5 py-2 text-sm font-medium text-white transition-all active:scale-95"
+            style={{
+              fontFamily: "var(--font-dm-sans)",
+              background: "linear-gradient(135deg, #FF2D78, #A855F7)",
+            }}
           >
             Get early access
           </a>
@@ -194,16 +207,24 @@ export default function Home() {
 
       {/* ── Hero ───────────────────────────────────────────────────────── */}
       <section className="relative overflow-hidden px-6 pt-20 pb-28 md:pt-28 md:pb-36">
-        {/* Background glow */}
-        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-[#1A56DB]/10 blur-[120px]" />
+        {/* Background glow — two-tone split */}
+        <div className="pointer-events-none absolute left-1/3 top-0 -translate-x-1/2 h-[500px] w-[600px] rounded-full bg-[#FF2D78]/12 blur-[120px]" />
+        <div className="pointer-events-none absolute right-1/3 top-0 translate-x-1/2 h-[500px] w-[600px] rounded-full bg-[#A855F7]/12 blur-[120px]" />
 
         <div className="relative mx-auto max-w-6xl">
           <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
             {/* Left: copy */}
             <div className="flex flex-col gap-6">
-              <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[#1A56DB]/30 bg-[#1A56DB]/10 px-4 py-1.5 text-sm text-[#93C5FD]"
-                style={{ fontFamily: "var(--font-dm-sans)" }}>
-                <span className="h-1.5 w-1.5 rounded-full bg-[#3B82F6] animate-pulse-dot" />
+              <div
+                className="inline-flex w-fit items-center gap-2 rounded-full border px-4 py-1.5 text-sm"
+                style={{
+                  fontFamily: "var(--font-dm-sans)",
+                  borderColor: "rgba(255,45,120,0.3)",
+                  backgroundColor: "rgba(255,45,120,0.08)",
+                  color: "#FFB3CC",
+                }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-[#FF2D78] animate-pulse-dot" />
                 Now accepting early access
               </div>
 
@@ -212,7 +233,13 @@ export default function Home() {
                 style={{ fontFamily: "var(--font-dm-sans)" }}
               >
                 Your music taste,<br />
-                <span className="bg-gradient-to-r from-[#3B82F6] to-[#93C5FD] bg-clip-text text-transparent">
+                <span
+                  style={{
+                    background: "linear-gradient(90deg, #FF2D78, #A855F7)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
+                >
                   your identity.
                 </span>
               </h1>
@@ -241,8 +268,15 @@ export default function Home() {
       <section className="border-t border-[#1E1E1E] px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
-            <p className="text-sm font-medium text-[#3B82F6] mb-3 uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-dm-sans)" }}>
+            <p
+              className="text-sm font-medium mb-3 uppercase tracking-widest"
+              style={{
+                background: "linear-gradient(90deg, #FF2D78, #A855F7)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: "var(--font-dm-sans)",
+              }}
+            >
               How it works
             </p>
             <h2
@@ -261,7 +295,7 @@ export default function Home() {
                 body: "Link Spotify or Apple Music. We read your listening history — nothing else.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#3B82F6"/>
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#FF2D78"/>
                   </svg>
                 ),
               },
@@ -271,10 +305,10 @@ export default function Home() {
                 body: "Your top artists, top tracks, genre DNA, and what's playing right now. Always up to date.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <rect x="3" y="3" width="7" height="7" rx="1.5" fill="#3B82F6"/>
-                    <rect x="14" y="3" width="7" height="7" rx="1.5" fill="#3B82F6" opacity="0.6"/>
-                    <rect x="3" y="14" width="7" height="7" rx="1.5" fill="#3B82F6" opacity="0.6"/>
-                    <rect x="14" y="14" width="7" height="7" rx="1.5" fill="#3B82F6" opacity="0.3"/>
+                    <rect x="3" y="3" width="7" height="7" rx="1.5" fill="#FF2D78"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1.5" fill="#A855F7" opacity="0.8"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1.5" fill="#A855F7" opacity="0.8"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1.5" fill="#FF2D78" opacity="0.4"/>
                   </svg>
                 ),
               },
@@ -284,20 +318,23 @@ export default function Home() {
                 body: "Get a compatibility score with every user. Built from actual listening overlap, not just genre labels.",
                 icon: (
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <circle cx="9" cy="8" r="3.5" fill="#3B82F6"/>
-                    <circle cx="15" cy="8" r="3.5" fill="#3B82F6" opacity="0.5"/>
-                    <path d="M2 20c0-3.31 3.13-6 7-6s7 2.69 7 6" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round"/>
-                    <path d="M17 14c2.21 0 4 1.79 4 4" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+                    <circle cx="9" cy="8" r="3.5" fill="#FF2D78"/>
+                    <circle cx="15" cy="8" r="3.5" fill="#A855F7" opacity="0.7"/>
+                    <path d="M2 20c0-3.31 3.13-6 7-6s7 2.69 7 6" stroke="#FF2D78" strokeWidth="1.5" strokeLinecap="round"/>
+                    <path d="M17 14c2.21 0 4 1.79 4 4" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
                   </svg>
                 ),
               },
             ].map(({ step, title, body, icon }) => (
               <div
                 key={step}
-                className="group relative rounded-2xl border border-[#2A2A2A] bg-[#141414] p-7 transition-all hover:border-[#1A56DB]/40 hover:bg-[#141414]"
+                className="group relative rounded-2xl border border-[#2A2A2A] bg-[#141414] p-7 transition-all hover:border-[#FF2D78]/30"
               >
                 <div className="mb-5 flex items-center justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#1A56DB]/15">
+                  <div
+                    className="flex h-10 w-10 items-center justify-center rounded-xl"
+                    style={{ backgroundColor: "rgba(255,45,120,0.12)" }}
+                  >
                     {icon}
                   </div>
                   <span
@@ -329,8 +366,15 @@ export default function Home() {
 
             {/* Copy */}
             <div className="flex flex-col gap-5">
-              <p className="text-sm font-medium text-[#3B82F6] uppercase tracking-widest"
-                style={{ fontFamily: "var(--font-dm-sans)" }}>
+              <p
+                className="text-sm font-medium uppercase tracking-widest"
+                style={{
+                  background: "linear-gradient(90deg, #FF2D78, #A855F7)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  fontFamily: "var(--font-dm-sans)",
+                }}
+              >
                 Compatibility
               </p>
               <h2
@@ -353,9 +397,9 @@ export default function Home() {
                   { label: "Listening energy", pct: "10%" },
                 ].map(({ label, pct }) => (
                   <li key={label} className="flex items-center gap-3">
-                    <div className="h-1.5 w-1.5 rounded-full bg-[#3B82F6] shrink-0" />
+                    <div className="h-1.5 w-1.5 rounded-full bg-[#FF2D78] shrink-0" />
                     <span>{label}</span>
-                    <span className="ml-auto font-medium text-[#3B82F6]">{pct}</span>
+                    <span className="ml-auto font-medium text-[#FF6FA3]">{pct}</span>
                   </li>
                 ))}
               </ul>
@@ -368,8 +412,15 @@ export default function Home() {
       <section className="border-t border-[#1E1E1E] px-6 py-24">
         <div className="mx-auto max-w-6xl">
           <div className="mb-14 text-center">
-            <p className="text-sm font-medium text-[#3B82F6] mb-3 uppercase tracking-widest"
-              style={{ fontFamily: "var(--font-dm-sans)" }}>
+            <p
+              className="text-sm font-medium mb-3 uppercase tracking-widest"
+              style={{
+                background: "linear-gradient(90deg, #FF2D78, #A855F7)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontFamily: "var(--font-dm-sans)",
+              }}
+            >
               Features
             </p>
             <h2
@@ -387,52 +438,57 @@ export default function Home() {
                 body: "See exactly what people are listening to right now. Real-time, not a playlist.",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <circle cx="11" cy="11" r="10" stroke="#3B82F6" strokeWidth="1.5"/>
-                    <circle cx="11" cy="11" r="3" fill="#3B82F6"/>
-                    <path d="M11 1v3M11 18v3M1 11h3M18 11h3" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+                    <circle cx="11" cy="11" r="10" stroke="#FF2D78" strokeWidth="1.5"/>
+                    <circle cx="11" cy="11" r="3" fill="#FF2D78"/>
+                    <path d="M11 1v3M11 18v3M1 11h3M18 11h3" stroke="#FF2D78" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
                   </svg>
                 ),
-                accent: "from-[#1A56DB]/20 to-transparent",
+                accent: "from-[#FF2D78]/15 to-transparent",
+                hover: "#FF2D78",
               },
               {
                 title: "Taste DNA",
                 body: "Your genre breakdown, visualized. See yourself the way your music does.",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path d="M2 16h4v4H2zM8 10h4v10H8zM14 6h4v14h-4z" fill="#3B82F6"/>
-                    <path d="M2 12h4M8 8h4M14 4h4" stroke="#3B82F6" strokeWidth="1" opacity="0.4"/>
+                    <path d="M2 16h4v4H2zM8 10h4v10H8zM14 6h4v14h-4z" fill="#A855F7"/>
+                    <path d="M2 12h4M8 8h4M14 4h4" stroke="#A855F7" strokeWidth="1" opacity="0.4"/>
                   </svg>
                 ),
-                accent: "from-[#7C3AED]/20 to-transparent",
+                accent: "from-[#A855F7]/15 to-transparent",
+                hover: "#A855F7",
               },
               {
                 title: "Real Compatibility",
                 body: "A score built from your actual listening history. Not vibes. Data.",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path d="M11 2L13.5 8.5H20L14.75 12.5L16.75 19L11 15L5.25 19L7.25 12.5L2 8.5H8.5L11 2Z" fill="#3B82F6" opacity="0.3" stroke="#3B82F6" strokeWidth="1.5" strokeLinejoin="round"/>
+                    <path d="M11 2L13.5 8.5H20L14.75 12.5L16.75 19L11 15L5.25 19L7.25 12.5L2 8.5H8.5L11 2Z" fill="#FF2D78" opacity="0.3" stroke="#FF2D78" strokeWidth="1.5" strokeLinejoin="round"/>
                   </svg>
                 ),
-                accent: "from-[#22C55E]/10 to-transparent",
+                accent: "from-[#FF2D78]/10 to-transparent",
+                hover: "#FF2D78",
               },
               {
                 title: "Deep Cuts",
                 body: "Connect over the songs most people don't know. The ones that define you.",
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path d="M5 11a6 6 0 0 1 12 0" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round"/>
-                    <path d="M2 11a9 9 0 0 1 18 0" stroke="#3B82F6" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
-                    <circle cx="11" cy="14" r="2.5" fill="#3B82F6"/>
+                    <path d="M5 11a6 6 0 0 1 12 0" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round"/>
+                    <path d="M2 11a9 9 0 0 1 18 0" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/>
+                    <circle cx="11" cy="14" r="2.5" fill="#A855F7"/>
                   </svg>
                 ),
-                accent: "from-[#F59E0B]/10 to-transparent",
+                accent: "from-[#A855F7]/15 to-transparent",
+                hover: "#A855F7",
               },
-            ].map(({ title, body, icon, accent }) => (
+            ].map(({ title, body, icon, accent, hover }) => (
               <div
                 key={title}
-                className={`group relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-7 transition-all hover:border-[#3B82F6]/30`}
+                className="group relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-7 transition-all"
+                style={{ ["--hover-color" as string]: hover }}
               >
-                <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accent} opacity-60`} />
+                <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accent} opacity-70`} />
                 <div className="relative">
                   <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E1E1E]">
                     {icon}
@@ -454,7 +510,9 @@ export default function Home() {
       {/* ── CTA ────────────────────────────────────────────────────────── */}
       <section id="waitlist" className="border-t border-[#1E1E1E] px-6 py-28 relative overflow-hidden">
         {/* Background glow */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[700px] rounded-full bg-[#1A56DB]/12 blur-[100px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[700px] rounded-full blur-[100px]"
+          style={{ background: "radial-gradient(ellipse, rgba(255,45,120,0.15) 0%, rgba(168,85,247,0.1) 50%, transparent 70%)" }}
+        />
 
         <div className="relative mx-auto max-w-2xl text-center">
           <h2

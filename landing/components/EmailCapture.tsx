@@ -65,17 +65,20 @@ export function EmailCapture({
         onChange={(e) => setEmail(e.target.value)}
         placeholder={placeholder}
         required
-        className={`flex-1 rounded-full border border-[#2A2A2A] bg-[#141414] text-white placeholder-[#505050] outline-none transition-all focus:border-[#1A56DB] focus:ring-2 focus:ring-[#1A56DB]/20 ${
+        className={`flex-1 rounded-full border border-[#2A2A2A] bg-[#141414] text-white placeholder-[#505050] outline-none transition-all focus:border-[#FF2D78] focus:ring-2 focus:ring-[#FF2D78]/20 ${
           size === "large" ? "px-6 py-4 text-base" : "px-5 py-3 text-sm"
         }`}
       />
       <button
         type="submit"
         disabled={loading}
-        className={`shrink-0 rounded-full bg-[#1A56DB] font-medium text-white transition-all hover:bg-[#1648c0] active:scale-95 disabled:opacity-60 ${
+        className={`shrink-0 rounded-full font-medium text-white transition-all active:scale-95 disabled:opacity-60 ${
           size === "large" ? "px-7 py-4 text-base" : "px-5 py-3 text-sm"
         }`}
-        style={{ fontFamily: "var(--font-dm-sans)" }}
+        style={{
+          fontFamily: "var(--font-dm-sans)",
+          background: "linear-gradient(135deg, #FF2D78, #A855F7)",
+        }}
       >
         {loading ? (
           <span className="flex items-center gap-2">

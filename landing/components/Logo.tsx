@@ -13,7 +13,13 @@ export function LogoIcon({ size = 40, className = "" }: LogoProps) {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <rect width="48" height="48" rx="12" fill="#1A56DB" />
+      <rect width="48" height="48" rx="12" fill="url(#logo-grad)" />
+      <defs>
+        <linearGradient id="logo-grad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+          <stop offset="0%" stopColor="#FF2D78" />
+          <stop offset="100%" stopColor="#A855F7" />
+        </linearGradient>
+      </defs>
       {/* Note head */}
       <ellipse
         cx="13"
