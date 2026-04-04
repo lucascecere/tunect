@@ -1,59 +1,98 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Tabs } from 'expo-router'
+import { View, Text, StyleSheet, Pressable } from 'react-native'
+import { Ionicons } from '@expo/vector-icons'
+import { useAuthStore } from '@/stores/authStore'
+import { Redirect } from 'expo-router'
+import { colors } from '@/constants/Colors'
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
+function TunectTabIcon() {
+  return (
+    <View style={tabStyles.centerIcon}>
+      <Text style={tabStyles.centerNote}>♪</Text>
+    </View>
+  )
 }
 
+const tabStyles = StyleSheet.create({
+  centerIcon: {
+    width: 52,
+    height: 52,
+    borderRadius: 26,
+    backgroundColor: colors.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20,
+    shadowColor: colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.5,
+    shadowRadius: 12,
+    elevation: 10,
+  },
+  centerNote: {
+    fontSize: 22,
+    color: '#fff',
+  },
+})
+
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { session } = useAuthStore()
+  if (!session) return <Redirect href="/(auth)" />
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        headerShown: false,
+        tabBarStyle: {
+          backgroundColor: colors.bgBase,
+          borderTopColor: colors.bgBorder,
+          borderTopWidth: 1,
+          height: 80,
+          paddingBottom: 16,
+        },
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.textMuted,
+        tabBarLabelStyle: {
+          fontSize: 10,
+          fontWeight: '500',
+          marginTop: 2,
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
-          ),
+          href: null, // hidden — home redirects to profile
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="explore"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Explore',
+          tabBarIcon: ({ color, size }) => <Ionicons name="search" size={22} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="now-playing"
+        options={{
+          title: '',
+          tabBarIcon: () => <TunectTabIcon />,
+          tabBarLabel: () => null,
+        }}
+      />
+      <Tabs.Screen
+        name="messages"
+        options={{
+          title: 'Messages',
+          tabBarIcon: ({ color }) => <Ionicons name="chatbubble-outline" size={22} color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <Ionicons name="person-outline" size={22} color={color} />,
         }}
       />
     </Tabs>
-  );
+  )
 }
