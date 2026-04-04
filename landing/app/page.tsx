@@ -192,16 +192,25 @@ export default function Home() {
       <nav className="sticky top-0 z-50 border-b border-[#1E1E1E]/60 bg-[#0A0A0A]/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <Logo size={36} />
-          <a
-            href="#waitlist"
-            className="rounded-full px-5 py-2 text-sm font-medium text-white transition-all active:scale-95"
-            style={{
-              fontFamily: "var(--font-dm-sans)",
-              background: "linear-gradient(135deg, #FF2D78, #A855F7)",
-            }}
-          >
-            Get early access
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              href="/demo"
+              className="rounded-full border border-[#2A2A2A] px-5 py-2 text-sm font-medium text-[#A0A0A0] transition-all hover:border-[#FF2D78]/40 hover:text-white active:scale-95"
+              style={{ fontFamily: "var(--font-dm-sans)" }}
+            >
+              Try demo
+            </a>
+            <a
+              href="#waitlist"
+              className="rounded-full px-5 py-2 text-sm font-medium text-white transition-all active:scale-95"
+              style={{
+                fontFamily: "var(--font-dm-sans)",
+                background: "linear-gradient(135deg, #FF2D78, #A855F7)",
+              }}
+            >
+              Get early access
+            </a>
+          </div>
         </div>
       </nav>
 
@@ -251,9 +260,18 @@ export default function Home() {
 
               <EmailCapture size="large" />
 
-              <p className="text-xs text-[#505050]">
-                No spam. Just an invite when we launch.
-              </p>
+              <div className="flex items-center gap-4">
+                <p className="text-xs text-[#505050]">
+                  No spam. Just an invite when we launch.
+                </p>
+                <a
+                  href="/demo"
+                  className="shrink-0 text-xs font-medium underline underline-offset-2 transition-colors"
+                  style={{ color: "#FF6FA3", fontFamily: "var(--font-dm-sans)", textDecorationColor: "rgba(255,111,163,0.4)" }}
+                >
+                  or try the demo →
+                </a>
+              </div>
             </div>
 
             {/* Right: phone mockup */}
