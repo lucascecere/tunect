@@ -58,21 +58,21 @@ export function EmailCapture({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex w-full max-w-md gap-2">
+    <form onSubmit={handleSubmit} className="flex w-full max-w-md flex-col gap-2 sm:flex-row">
       <input
         type="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder={placeholder}
         required
-        className={`flex-1 rounded-full border border-[#2A2A2A] bg-[#141414] text-white placeholder-[#505050] outline-none transition-all focus:border-[#FF2D78] focus:ring-2 focus:ring-[#FF2D78]/20 ${
+        className={`w-full rounded-full border border-[#2A2A2A] bg-[#141414] text-white placeholder-[#505050] outline-none transition-all focus:border-[#FF2D78] focus:ring-2 focus:ring-[#FF2D78]/20 sm:flex-1 ${
           size === "large" ? "px-6 py-4 text-base" : "px-5 py-3 text-sm"
         }`}
       />
       <button
         type="submit"
         disabled={loading}
-        className={`shrink-0 rounded-full font-medium text-white transition-all active:scale-95 disabled:opacity-60 ${
+        className={`w-full rounded-full font-medium text-white transition-all active:scale-95 disabled:opacity-60 sm:w-auto sm:shrink-0 ${
           size === "large" ? "px-7 py-4 text-base" : "px-5 py-3 text-sm"
         }`}
         style={{
@@ -81,7 +81,7 @@ export function EmailCapture({
         }}
       >
         {loading ? (
-          <span className="flex items-center gap-2">
+          <span className="flex items-center justify-center gap-2">
             <svg
               className="animate-spin"
               width="14"
