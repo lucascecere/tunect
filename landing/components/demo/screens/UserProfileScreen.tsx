@@ -18,6 +18,11 @@ const USERS: Record<string, any> = {
     genres: [{ genre: "Indie R&B", pct: 74 }, { genre: "Neo-Soul", pct: 55 }, { genre: "Alt-Pop", pct: 33 }],
     label: "Soul Keeper",
     playing: true, track: "Seigfried",
+    sharedSongs: [
+      { name: "Novacane", artist: "Frank Ocean" },
+      { name: "Losing You", artist: "Solange" },
+      { name: "Jesus Children", artist: "Blood Orange" },
+    ],
   },
   "2": {
     name: "Mia Torres", username: "mia.beats",
@@ -28,6 +33,10 @@ const USERS: Record<string, any> = {
     genres: [{ genre: "Pop R&B", pct: 66 }, { genre: "Dance Pop", pct: 48 }, { genre: "Electronic", pct: 29 }],
     label: "Pop Maximalist",
     playing: false,
+    sharedSongs: [
+      { name: "Can't Feel My Face", artist: "The Weeknd" },
+      { name: "Paint The Town Red", artist: "Doja Cat" },
+    ],
   },
   "3": {
     name: "Sam Park", username: "sampark",
@@ -38,6 +47,7 @@ const USERS: Record<string, any> = {
     genres: [{ genre: "Indie Rock", pct: 71 }, { genre: "Alternative", pct: 59 }, { genre: "Psychedelic", pct: 38 }],
     label: "Indie Nocturnal",
     playing: true, track: "Do I Wanna Know?",
+    sharedSongs: [],
   },
   "4": {
     name: "Riley Okafor", username: "rileyok",
@@ -48,6 +58,7 @@ const USERS: Record<string, any> = {
     genres: [{ genre: "Conscious Rap", pct: 68 }, { genre: "Hip-Hop", pct: 61 }, { genre: "Jazz Rap", pct: 27 }],
     label: "Hip-Hop Purist",
     playing: false,
+    sharedSongs: [],
   },
   "5": {
     name: "Alex Novak", username: "anovak",
@@ -58,42 +69,49 @@ const USERS: Record<string, any> = {
     genres: [{ genre: "Indie Pop", pct: 63 }, { genre: "Dream Pop", pct: 44 }, { genre: "Folk", pct: 31 }],
     label: "Slow Burn Listener",
     playing: false,
+    sharedSongs: [],
   },
 };
 
+type ConnectState = "connect" | "requested" | "connected";
+
 function scoreColor(s: number) {
   if (s >= 80) return "#22C55E";
-  if (s >= 60) return "#A855F7";
+  if (s >= 60) return "#3B82F6";
   if (s >= 40) return "#F59E0B";
   return "#505050";
 }
 
 export function UserProfileScreen({ go, userId }: Props) {
   const [followed, setFollowed] = useState(false);
+  const [connectState, setConnectState] = useState<ConnectState>("connect");
   const user = USERS[userId ?? "1"] ?? USERS["1"];
   const sc = scoreColor(user.score);
+
+  function handleConnect() {
+    if (connectState === "connect") setConnectState("requested");
+    else if (connectState === "requested") setConnectState("connect"); // allow undo
+  }
 
   return (
     <div className="h-full overflow-y-auto bg-[#0A0A0A]" style={{ scrollbarWidth: "none" }}>
       {/* Back */}
       <button
-        onClick={() => go("explore")}
+        onClick={() => go("discover")}
         className="flex items-center gap-1 px-4 pt-3 pb-1 text-sm font-medium"
-        style={{ color: "#FF2D78", fontFamily: "var(--font-dm-sans)" }}
+        style={{ color: "#FF2D78" }}
       >
-        ← Explore
+        ← Discover
       </button>
 
       {/* Profile header */}
-      <div className="flex flex-col items-center px-6 pt-2 pb-5">
+      <div className="flex flex-col items-center px-6 pt-2 pb-4">
         <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-3xl mb-3`}>
           {user.name[0]}
         </div>
         <p className="text-white text-xl font-bold" style={{ fontFamily: "var(--font-dm-sans)", letterSpacing: "-0.3px" }}>{user.name}</p>
         <p className="text-[#A0A0A0] text-sm mt-0.5">@{user.username}</p>
         <p className="text-[#505050] text-xs mt-2 text-center italic">{user.bio}</p>
-
-        {/* Now playing */}
         {user.playing && (
           <div className="mt-3 flex items-center gap-2 rounded-full px-3 py-1.5" style={{ backgroundColor: "rgba(255,45,120,0.1)", border: "1px solid rgba(255,45,120,0.2)" }}>
             <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ backgroundColor: "#FF2D78" }} />
@@ -106,9 +124,8 @@ export function UserProfileScreen({ go, userId }: Props) {
       <div className="flex gap-2.5 px-5 mb-4">
         <button
           onClick={() => setFollowed(!followed)}
-          className="flex-1 rounded-full py-3 text-sm font-semibold transition-all"
+          className="flex-1 rounded-full py-2.5 text-sm font-semibold transition-all"
           style={{
-            fontFamily: "var(--font-dm-sans)",
             background: followed ? "transparent" : "linear-gradient(135deg, #FF2D78, #A855F7)",
             color: followed ? "#A0A0A0" : "#fff",
             border: followed ? "1px solid #2A2A2A" : "none",
@@ -118,10 +135,21 @@ export function UserProfileScreen({ go, userId }: Props) {
           {followed ? "Following ✓" : "Follow"}
         </button>
         <button
-          className="flex-1 rounded-full py-3 text-sm font-semibold text-[#A0A0A0]"
-          style={{ fontFamily: "var(--font-dm-sans)", border: "1px solid #2A2A2A", backgroundColor: "#141414" }}
+          onClick={handleConnect}
+          className="flex-1 rounded-full py-2.5 text-sm font-semibold transition-all"
+          style={{
+            backgroundColor:
+              connectState === "connected" ? "rgba(34,197,94,0.12)" :
+              connectState === "requested" ? "#141414" : "#1E1E1E",
+            color:
+              connectState === "connected" ? "#22C55E" :
+              connectState === "requested" ? "#505050" : "#A0A0A0",
+            border:
+              connectState === "connected" ? "1px solid rgba(34,197,94,0.3)" :
+              connectState === "requested" ? "1px solid #2A2A2A" : "1px solid #2A2A2A",
+          }}
         >
-          Message
+          {connectState === "connected" ? "Connected ✓" : connectState === "requested" ? "Requested" : "Connect"}
         </button>
       </div>
 
@@ -157,7 +185,7 @@ export function UserProfileScreen({ go, userId }: Props) {
         </div>
       </div>
 
-      {/* Personality */}
+      {/* Music Personality */}
       <div className="px-4 mb-4">
         <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-3">Music Personality</p>
         <div className="rounded-2xl p-4" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
@@ -176,10 +204,24 @@ export function UserProfileScreen({ go, userId }: Props) {
         </div>
       </div>
 
-      {/* Shared songs */}
+      {/* Songs You Both Love */}
       <div className="px-4 pb-6">
-        <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-2">Songs You Both Love</p>
-        <p className="text-[#505050] text-xs italic">No shared songs yet — your tastes might surprise you</p>
+        <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-3">Songs You Both Love</p>
+        {user.sharedSongs?.length > 0 ? (
+          <div className="flex flex-col gap-2">
+            {user.sharedSongs.map((s: any) => (
+              <div key={s.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
+                <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-zinc-700 to-zinc-600 flex items-center justify-center text-white text-xs shrink-0">♫</div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-white text-sm font-medium truncate">{s.name}</p>
+                  <p className="text-[#A0A0A0] text-xs truncate">{s.artist}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-[#505050] text-xs italic">No shared songs yet — your tastes might surprise you</p>
+        )}
       </div>
     </div>
   );

@@ -1,17 +1,13 @@
 export const colors = {
-  primary:      '#FF2D78',
-  primaryMid:   '#FF6FA3',
-  primaryLight: '#FFB3CC',
-  primaryGhost: 'rgba(255,45,120,0.12)',
+  primary:      '#1A56DB',  // deep blue — CTA buttons, active states
+  primaryMid:   '#3B82F6',  // blue 500 — secondary actions, highlights
+  primaryLight: '#93C5FD',  // blue 300 — glows, now playing pulse
+  primaryGhost: '#1A56DB22',// blue tint — subtle backgrounds
 
-  accent:       '#A855F7',
-  accentLight:  '#D8B4FE',
-  accentGhost:  'rgba(168,85,247,0.12)',
-
-  bgBase:      '#0A0A0A',
-  bgSurface:   '#141414',
-  bgElevated:  '#1E1E1E',
-  bgBorder:    '#2A2A2A',
+  bgBase:      '#0A0A0A',   // main background
+  bgSurface:   '#141414',   // cards, bottom sheets
+  bgElevated:  '#1E1E1E',   // modals
+  bgBorder:    '#2A2A2A',   // dividers
 
   textPrimary:   '#FFFFFF',
   textSecondary: '#A0A0A0',
@@ -21,10 +17,10 @@ export const colors = {
   error:   '#EF4444',
   warning: '#F59E0B',
 
-  matchStrong: '#22C55E',
-  matchGood:   '#A855F7',
-  matchFair:   '#F59E0B',
-  matchLow:    '#505050',
+  matchStrong: '#22C55E',   // 80–100
+  matchGood:   '#3B82F6',   // 60–79
+  matchFair:   '#F59E0B',   // 40–59
+  matchLow:    '#505050',   // 0–39
 
   spotifyGreen: '#1DB954',
 }

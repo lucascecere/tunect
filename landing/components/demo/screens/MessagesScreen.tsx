@@ -8,27 +8,27 @@ interface Props {
 }
 
 const CONVOS = [
-  { id: "1", name: "Jamie Chen", preview: "omg you listen to Frank Ocean too??", time: "2m", unread: 2, color: "from-cyan-500 to-teal-400" },
-  { id: "2", name: "Mia Torres", preview: "that Brat album is everything rn", time: "1h", unread: 0, color: "from-pink-500 to-rose-400" },
-  { id: "3", name: "Sam Park", preview: "new Arctic Monkeys deep cut??", time: "3h", unread: 1, color: "from-yellow-500 to-orange-400" },
-  { id: "4", name: "Riley Okafor", preview: "Kendrick really said 🔥🔥", time: "1d", unread: 0, color: "from-red-500 to-rose-500" },
+  { id: "1", name: "Jamie Chen",   preview: "omg you listen to Frank Ocean too??", time: "2m",  unread: 2, color: "from-cyan-500 to-teal-400",     starter: "You both love Frank Ocean — ask them which album got them first." },
+  { id: "2", name: "Mia Torres",   preview: "that Brat album is everything rn",     time: "1h",  unread: 0, color: "from-pink-500 to-rose-400",      starter: null },
+  { id: "3", name: "Sam Park",     preview: "new Arctic Monkeys deep cut??",         time: "3h",  unread: 1, color: "from-yellow-500 to-orange-400",  starter: null },
+  { id: "4", name: "Riley Okafor", preview: "Kendrick really said 🔥🔥",            time: "1d",  unread: 0, color: "from-red-500 to-rose-500",        starter: null },
 ];
 
 const THREAD: Record<string, { from: "me" | "them"; text: string }[]> = {
   "1": [
     { from: "them", text: "yo have you heard Blonde start to finish lately?" },
-    { from: "me", text: "literally last night, everytime like a movie" },
+    { from: "me",   text: "literally last night, everytime like a movie" },
     { from: "them", text: "omg you listen to Frank Ocean too??" },
-    { from: "me", text: "he's literally top 1 for me rn" },
+    { from: "me",   text: "he's literally top 1 for me rn" },
     { from: "them", text: "same 😭 our 94% makes so much sense now" },
   ],
   "2": [
     { from: "them", text: "that Brat album is everything rn" },
-    { from: "me", text: "charli really ate" },
+    { from: "me",   text: "charli really ate" },
   ],
   "3": [
     { from: "them", text: "new Arctic Monkeys deep cut??" },
-    { from: "me", text: "wait which one" },
+    { from: "me",   text: "wait which one" },
     { from: "them", text: "505 live version, you have to hear it" },
   ],
   "4": [
@@ -40,6 +40,7 @@ export function MessagesScreen({ go }: Props) {
   const [openId, setOpenId] = useState<string | null>(null);
   const [draft, setDraft] = useState("");
   const [threads, setThreads] = useState(THREAD);
+  const [starterDismissed, setStarterDismissed] = useState<Set<string>>(new Set());
 
   const openConvo = CONVOS.find((c) => c.id === openId);
 
@@ -50,10 +51,21 @@ export function MessagesScreen({ go }: Props) {
       [openId]: [...(prev[openId] ?? []), { from: "me", text: draft.trim() }],
     }));
     setDraft("");
+    // dismiss starter once they send a message
+    if (openId) setStarterDismissed((p) => new Set(p).add(openId));
+  }
+
+  function useStarter(text: string) {
+    setDraft(text);
   }
 
   if (openId && openConvo) {
     const msgs = threads[openId] ?? [];
+    const showStarter =
+      openConvo.starter &&
+      !starterDismissed.has(openId) &&
+      msgs.filter((m) => m.from === "me").length === 0;
+
     return (
       <div className="h-full flex flex-col bg-[#0A0A0A]">
         {/* Header */}
@@ -62,8 +74,9 @@ export function MessagesScreen({ go }: Props) {
           <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${openConvo.color} flex items-center justify-center text-white text-sm font-bold shrink-0`}>
             {openConvo.name[0]}
           </div>
-          <div>
+          <div className="flex-1">
             <p className="text-white text-sm font-semibold leading-tight">{openConvo.name}</p>
+            <p className="text-[#505050] text-[10px]">Connected · 94% compatible</p>
           </div>
         </div>
 
@@ -85,8 +98,33 @@ export function MessagesScreen({ go }: Props) {
           ))}
         </div>
 
+        {/* Conversation starter chip */}
+        {showStarter && (
+          <div className="px-4 pb-2 flex items-start gap-2">
+            <div className="flex-1 rounded-xl px-3 py-2.5 text-xs text-[#A0A0A0]" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
+              💡 <span className="italic">{openConvo.starter}</span>
+            </div>
+            <div className="flex gap-1 shrink-0 pt-0.5">
+              <button
+                onClick={() => useStarter(openConvo.starter!.split("—")[1]?.trim().replace(/[".]$/, "") ?? "")}
+                className="text-[10px] font-semibold rounded-full px-2.5 py-1"
+                style={{ background: "linear-gradient(135deg, #FF2D78, #A855F7)", color: "#fff" }}
+              >
+                Use
+              </button>
+              <button
+                onClick={() => setStarterDismissed((p) => new Set(p).add(openId!))}
+                className="text-[10px] font-semibold rounded-full px-2.5 py-1 text-[#505050]"
+                style={{ backgroundColor: "#1E1E1E", border: "1px solid #2A2A2A" }}
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+
         {/* Input */}
-        <div className="flex items-center gap-2 px-3 pb-3 pt-2 shrink-0" style={{ borderTop: "1px solid #1E1E1E" }}>
+        <div className="flex items-center gap-2 px-3 pb-3 pt-1 shrink-0" style={{ borderTop: "1px solid #1E1E1E" }}>
           <input
             className="flex-1 rounded-full px-4 py-2 text-sm text-white placeholder-[#505050] outline-none"
             style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}
@@ -112,6 +150,7 @@ export function MessagesScreen({ go }: Props) {
       {/* Header */}
       <div className="px-4 pt-3 pb-3 shrink-0" style={{ borderBottom: "1px solid #1E1E1E" }}>
         <h1 className="text-2xl font-bold text-white" style={{ fontFamily: "var(--font-dm-sans)", letterSpacing: "-0.5px" }}>Messages</h1>
+        <p className="text-[#505050] text-xs mt-0.5">Only connected users can DM</p>
       </div>
 
       {/* List */}

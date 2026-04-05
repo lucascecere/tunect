@@ -1,8 +1,6 @@
 import { Tabs } from 'expo-router'
-import { View, Text, StyleSheet, Pressable } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
 import { Ionicons } from '@expo/vector-icons'
-import { useAuthStore } from '@/stores/authStore'
-import { Redirect } from 'expo-router'
 import { colors } from '@/constants/Colors'
 
 function TunectTabIcon() {
@@ -35,8 +33,6 @@ const tabStyles = StyleSheet.create({
 })
 
 export default function TabLayout() {
-  const { session } = useAuthStore()
-  if (!session) return <Redirect href="/(auth)" />
 
   return (
     <Tabs

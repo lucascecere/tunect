@@ -3,17 +3,21 @@
 import { useState } from "react";
 import { SplashScreen } from "./screens/SplashScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
-import { ExploreScreen } from "./screens/ExploreScreen";
+import { DiscoverScreen } from "./screens/DiscoverScreen";
+import { FeedScreen } from "./screens/FeedScreen";
+import { NowPlayingScreen } from "./screens/NowPlayingScreen";
 import { UserProfileScreen } from "./screens/UserProfileScreen";
 import { MessagesScreen } from "./screens/MessagesScreen";
 import { TabBar } from "./TabBar";
 
 export type Screen =
   | "splash"
+  | "discover"
+  | "feed"
+  | "nowPlaying"
+  | "messages"
   | "profile"
-  | "explore"
-  | "userProfile"
-  | "messages";
+  | "userProfile";
 
 export type NavState = {
   screen: Screen;
@@ -59,12 +63,14 @@ export function DemoShell() {
         </div>
 
         {/* Screen content */}
-        <div className="relative flex-1 overflow-hidden" style={{ height: showTabs ? 668 : 720 }}>
-          {nav.screen === "splash" && <SplashScreen go={go} />}
-          {nav.screen === "profile" && <ProfileScreen go={go} />}
-          {nav.screen === "explore" && <ExploreScreen go={go} />}
+        <div className="relative overflow-hidden" style={{ height: showTabs ? 664 : 720 }}>
+          {nav.screen === "splash"      && <SplashScreen go={go} />}
+          {nav.screen === "discover"    && <DiscoverScreen go={go} />}
+          {nav.screen === "feed"        && <FeedScreen go={go} />}
+          {nav.screen === "nowPlaying"  && <NowPlayingScreen go={go} />}
           {nav.screen === "userProfile" && <UserProfileScreen go={go} userId={nav.userId} />}
-          {nav.screen === "messages" && <MessagesScreen go={go} />}
+          {nav.screen === "messages"    && <MessagesScreen go={go} />}
+          {nav.screen === "profile"     && <ProfileScreen go={go} />}
         </div>
 
         {/* Tab bar */}
