@@ -40,26 +40,55 @@ Sections in order:
 5. **Top Tracks** — list of 5, each row: album art + track name + artist
 6. **Music Personality** — card showing generated label + top 3 genres as percentage bars
 
-### 6. Explore `(tabs)/explore.tsx`
-- Search bar at top (filter by username/display name)
-- Default list: users sorted by compatibility score (highest first)
-- Each user card:
-  - Avatar + display name + @username
-  - Compatibility % badge (color coded)
-  - Top 3 artist names (text, small)
-  - Now playing badge if active
+### 6. Discover `(tabs)/discover.tsx`
+Pure people search. Not a ranked list — a browseable directory.
+- Search bar at top (searches name, @username, personality label, artist names)
+- Empty state: genre filter pills + "People nearby" default list
+- Each user row: avatar (with live dot if playing), display name, @username, now playing track or top artists, personality label
 - Tap → User Profile screen
 
-### 7. User Profile `/user/[id].tsx`
+**Listening Together card** (pinned at top of empty state):
+- When you are currently playing a track AND another user is playing the exact same track right now, surface a highlighted card above the people list
+- Card shows: their avatar with a pulsing ring, track info, animated equalizer bars
+- CTA: "Say something" → tapping opens their profile with the co-listening banner visible
+- Only shown when there is an active match. If nobody is on the same song, section is hidden.
+
+### 7. Explore `(tabs)/explore.tsx`
+Two sub-tabs: **For You** and **Friends**.
+
+**For You tab:**
+- Regional trending section at top (see feature below)
+- 2-column staggered grid of music content cards
+- Card types: New Release, Trending, Similar Artist, Deep Cut, Genre Dive
+- Each card: album art gradient, badge, track + artist, like button
+- Content is personalized based on your top artists and genres
+
+**Friends tab:**
+- Chronological feed of what people you follow are doing
+- Post types: now playing (live), new discovery, milestone (50th play), manual song share
+- Each post: avatar, name, live badge if active, track card, caption, like/reply/share actions
+
+**Trending by City** (within For You tab):
+- City selector pill row: New York, Los Angeles, Atlanta, London (expandable)
+- Per city: top 3 tracks ranked, album art, artist name, #1 highlighted
+- Footer: "Based on streams in the last 7 days · [City]"
+- Data source: aggregate stream counts by user location from Supabase + Spotify data
+- UI note: city tabs are horizontally scrollable; default to user's city if known
+
+### 8. User Profile `/user/[id].tsx`
 Same layout as My Profile but:
 - No edit button
-- Shows Follow + Message buttons
-- Shows compatibility card at top:
-  - Score (large, color coded)
-  - "X shared artists" · "X shared genres"
+- Shows Follow + Connect buttons
+- Shows compatibility card: score (large, color coded), shared artists count, shared genres
 - Shows "Songs you both love" section (shared top tracks)
 - Follow button: outline → filled on follow
-- Message button: only active if both follow each other (connected)
+- Connect button: Connect → Requested → Connected (DMs unlock on mutual connect)
+
+**Listening Together banner** (conditional):
+- When you and the person whose profile you're viewing are both playing the exact same track right now, show a prominent banner between the action buttons and compatibility card
+- Banner: pulsing gradient ring icon, "Listening together right now", track name, "Say hi →" button that opens DMs (or connect prompt if not yet connected)
+- This is the strongest social trigger in the app — it's real-time serendipity, not algorithmic
+- Powered by comparing `now_playing.track_id` between the two users in Supabase Realtime
 
 ### 8. Messages `(tabs)/messages.tsx`
 - List of conversations

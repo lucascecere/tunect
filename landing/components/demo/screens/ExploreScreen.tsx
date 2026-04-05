@@ -9,6 +9,41 @@ interface Props {
 
 type Tab = "For You" | "Friends";
 
+const REGIONS = [
+  {
+    id: "nyc", label: "New York", emoji: "🗽",
+    tracks: [
+      { track: "Blinding Lights",   artist: "The Weeknd",      color: "from-blue-700 to-indigo-600"  },
+      { track: "A$AP Forever",      artist: "A$AP Rocky",      color: "from-red-700 to-rose-600"     },
+      { track: "Empire State of Mind", artist: "Jay-Z",        color: "from-zinc-700 to-zinc-500"    },
+    ],
+  },
+  {
+    id: "la", label: "Los Angeles", emoji: "🌴",
+    tracks: [
+      { track: "Not Like Us",       artist: "Kendrick Lamar",  color: "from-purple-700 to-violet-500"},
+      { track: "Low Life",          artist: "Future",          color: "from-orange-700 to-amber-500" },
+      { track: "Novacane",          artist: "Frank Ocean",     color: "from-teal-700 to-cyan-500"    },
+    ],
+  },
+  {
+    id: "atl", label: "Atlanta", emoji: "🍑",
+    tracks: [
+      { track: "Rich Flex",         artist: "Drake & 21",      color: "from-yellow-700 to-orange-500"},
+      { track: "Bad and Boujee",    artist: "Migos",           color: "from-emerald-700 to-green-500"},
+      { track: "Lifestyle",         artist: "Rich Gang",       color: "from-pink-700 to-rose-500"    },
+    ],
+  },
+  {
+    id: "uk", label: "London", emoji: "🎡",
+    tracks: [
+      { track: "Boy's a liar",      artist: "PinkPantheress",  color: "from-fuchsia-700 to-pink-500" },
+      { track: "Escapism",          artist: "RAYE",            color: "from-cyan-700 to-sky-500"     },
+      { track: "Strangers",         artist: "Kenya Grace",     color: "from-violet-700 to-purple-500"},
+    ],
+  },
+];
+
 const FOR_YOU_CARDS = [
   { id: "fy1", type: "new_release", size: "tall",   artist: "Frank Ocean",     track: "Pyramids",           label: "New from an artist you love",           color: "from-cyan-700 to-teal-500",        plays: "2.4M" },
   { id: "fy2", type: "trending",    size: "square", artist: "SZA",             track: "Snooze",             label: "Trending in Indie R&B",                 color: "from-rose-600 to-pink-500",        plays: "8.1M" },
@@ -120,6 +155,64 @@ function FriendPost({ post }: { post: typeof FRIEND_ACTIVITY[0] }) {
   );
 }
 
+function RegionalTrending() {
+  const [active, setActive] = useState("nyc");
+  const region = REGIONS.find((r) => r.id === active)!;
+
+  return (
+    <div className="mb-2">
+      {/* Section header */}
+      <div className="px-3 pt-3 pb-2 flex items-center justify-between">
+        <div>
+          <p className="text-white text-xs font-bold" style={{ fontFamily: "var(--font-dm-sans)" }}>Trending by City</p>
+          <p className="text-[#505050] text-[10px]">What's hot where people listen</p>
+        </div>
+        <span className="text-[#505050] text-[10px]">charts</span>
+      </div>
+
+      {/* City selector */}
+      <div className="flex gap-2 px-3 pb-2.5 overflow-x-auto" style={{ scrollbarWidth: "none" }}>
+        {REGIONS.map((r) => (
+          <button key={r.id} onClick={() => setActive(r.id)}
+            className="shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
+            style={{
+              backgroundColor: active === r.id ? "rgba(255,45,120,0.12)" : "#141414",
+              border: `1px solid ${active === r.id ? "#FF2D78" : "#2A2A2A"}`,
+              color: active === r.id ? "#FF2D78" : "#505050",
+            }}>
+            <span>{r.emoji}</span>{r.label}
+          </button>
+        ))}
+      </div>
+
+      {/* Track list */}
+      <div className="mx-3 rounded-2xl overflow-hidden" style={{ border: "1px solid #2A2A2A", backgroundColor: "#141414" }}>
+        {region.tracks.map((t, i) => (
+          <div key={t.track}
+            className="flex items-center gap-3 px-3 py-2.5"
+            style={{ borderBottom: i < region.tracks.length - 1 ? "1px solid #1E1E1E" : "none" }}>
+            <span className="text-[#505050] text-xs font-bold w-4 shrink-0">#{i + 1}</span>
+            <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${t.color} shrink-0 flex items-center justify-center text-white text-sm`}>♪</div>
+            <div className="flex-1 min-w-0">
+              <p className="text-white text-xs font-semibold truncate">{t.track}</p>
+              <p className="text-[#A0A0A0] text-[10px] truncate">{t.artist}</p>
+            </div>
+            {i === 0 && (
+              <span className="shrink-0 text-[9px] font-bold rounded-full px-2 py-0.5"
+                style={{ backgroundColor: "rgba(255,45,120,0.12)", color: "#FF2D78" }}>
+                🔥 #1
+              </span>
+            )}
+          </div>
+        ))}
+        <div className="px-3 py-2 flex items-center gap-1.5" style={{ borderTop: "1px solid #1E1E1E" }}>
+          <span className="text-[9px] text-[#505050]">Based on streams in the last 7 days · {region.emoji} {region.label}</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function ExploreScreen({ go }: Props) {
   const [tab, setTab] = useState<Tab>("For You");
 
@@ -149,12 +242,18 @@ export function ExploreScreen({ go }: Props) {
       {/* Content */}
       <div className="flex-1 overflow-y-auto" style={{ scrollbarWidth: "none" }}>
         {tab === "For You" ? (
-          <div className="p-3 grid grid-cols-2 gap-2" style={{ gridAutoRows: "minmax(0,1fr)" }}>
-            {FOR_YOU_CARDS.map((card) => (
-              <div key={card.id} className={card.size === "tall" ? "row-span-2" : ""}>
-                <GridCard card={card} />
-              </div>
-            ))}
+          <div>
+            <RegionalTrending />
+            <div className="px-3 pt-1 pb-1">
+              <p className="text-[#505050] text-[10px] font-semibold uppercase tracking-widest">Picked for you</p>
+            </div>
+            <div className="p-3 grid grid-cols-2 gap-2" style={{ gridAutoRows: "minmax(0,1fr)" }}>
+              {FOR_YOU_CARDS.map((card) => (
+                <div key={card.id} className={card.size === "tall" ? "row-span-2" : ""}>
+                  <GridCard card={card} />
+                </div>
+              ))}
+            </div>
           </div>
         ) : (
           <div className="py-1">

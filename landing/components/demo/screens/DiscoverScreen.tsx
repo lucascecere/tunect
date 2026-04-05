@@ -18,6 +18,14 @@ const ALL_USERS = [
 
 const SUGGESTED_SEARCHES = ["Indie R&B", "Neo-Soul", "Alt-Rock", "Rap", "Dream Pop", "Hyperpop"];
 
+// Simulated: your current track + someone else playing it right now
+const LISTENING_TOGETHER = {
+  user: ALL_USERS[0], // Jamie
+  track: "Novacane",
+  artist: "Frank Ocean",
+  trackColor: "from-cyan-700 to-teal-600",
+};
+
 export function DiscoverScreen({ go }: Props) {
   const [query, setQuery] = useState("");
 
@@ -72,6 +80,55 @@ export function DiscoverScreen({ go }: Props) {
                   {s}
                 </button>
               ))}
+            </div>
+
+            {/* Same song right now */}
+            <div className="mb-5">
+              <p className="text-[#505050] text-xs font-semibold uppercase tracking-widest mb-3">Listening to the same song as you</p>
+              <button
+                onClick={() => go("userProfile", LISTENING_TOGETHER.user.id)}
+                className="w-full rounded-2xl p-3.5 text-left transition-opacity active:opacity-70"
+                style={{ background: "linear-gradient(135deg, rgba(255,45,120,0.1), rgba(168,85,247,0.08))", border: "1px solid rgba(255,45,120,0.3)" }}
+              >
+                <div className="flex items-center gap-3">
+                  {/* Avatar with outer pulse ring */}
+                  <div className="relative shrink-0">
+                    <div className="absolute -inset-1 rounded-full animate-ping" style={{ backgroundColor: "rgba(255,45,120,0.2)" }} />
+                    <div className={`relative w-11 h-11 rounded-full bg-gradient-to-br ${LISTENING_TOGETHER.user.color} flex items-center justify-center text-white font-bold text-base`}>
+                      {LISTENING_TOGETHER.user.name[0]}
+                    </div>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 mb-0.5">
+                      <p className="text-white text-sm font-bold">{LISTENING_TOGETHER.user.name}</p>
+                      <span className="text-[9px] font-semibold rounded-full px-1.5 py-0.5"
+                        style={{ backgroundColor: "rgba(255,45,120,0.15)", color: "#FF2D78" }}>
+                        ● live
+                      </span>
+                    </div>
+                    <p className="text-[#505050] text-[10px]">@{LISTENING_TOGETHER.user.handle}</p>
+                  </div>
+                  <div className="shrink-0 text-right">
+                    <p className="text-[10px] font-semibold" style={{ color: "#FF6FA3" }}>View →</p>
+                  </div>
+                </div>
+                {/* Track card */}
+                <div className="mt-3 flex items-center gap-2.5 rounded-xl p-2.5" style={{ backgroundColor: "rgba(0,0,0,0.3)" }}>
+                  <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${LISTENING_TOGETHER.trackColor} shrink-0 flex items-center justify-center text-white text-sm`}>♪</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-white text-xs font-semibold truncate">{LISTENING_TOGETHER.track}</p>
+                    <p className="text-[#A0A0A0] text-[10px] truncate">{LISTENING_TOGETHER.artist}</p>
+                  </div>
+                  <div className="flex items-center gap-0.5 shrink-0">
+                    {[3,5,4,6,3,5].map((h, i) => (
+                      <div key={i} className="w-0.5 rounded-full animate-pulse" style={{ height: h * 2, backgroundColor: "#FF2D78", animationDelay: `${i * 0.1}s` }} />
+                    ))}
+                  </div>
+                </div>
+                <p className="mt-2 text-[10px] text-center" style={{ color: "#FFB3CC" }}>
+                  You and {LISTENING_TOGETHER.user.name.split(" ")[0]} are both listening right now — say something
+                </p>
+              </button>
             </div>
 
             <p className="text-[#505050] text-xs font-semibold uppercase tracking-widest mb-3">People nearby</p>

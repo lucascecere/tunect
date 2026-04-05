@@ -17,7 +17,7 @@ const USERS: Record<string, any> = {
     artists: ["Frank Ocean", "Blood Orange", "SZA", "Solange", "Steve Lacy"],
     genres: [{ genre: "Indie R&B", pct: 74 }, { genre: "Neo-Soul", pct: 55 }, { genre: "Alt-Pop", pct: 33 }],
     label: "Soul Keeper",
-    playing: true, track: "Seigfried",
+    playing: true, track: "Novacane",
     sharedSongs: [
       { name: "Novacane", artist: "Frank Ocean" },
       { name: "Losing You", artist: "Solange" },
@@ -73,6 +73,9 @@ const USERS: Record<string, any> = {
   },
 };
 
+// The logged-in user's current track (mock)
+const MY_NOW_PLAYING = "Novacane";
+
 type ConnectState = "connect" | "requested" | "connected";
 
 function scoreColor(s: number) {
@@ -87,6 +90,7 @@ export function UserProfileScreen({ go, userId }: Props) {
   const [connectState, setConnectState] = useState<ConnectState>("connect");
   const user = USERS[userId ?? "1"] ?? USERS["1"];
   const sc = scoreColor(user.score);
+  const listeningTogether = user.playing && user.track === MY_NOW_PLAYING;
 
   function handleConnect() {
     if (connectState === "connect") setConnectState("requested");
@@ -152,6 +156,28 @@ export function UserProfileScreen({ go, userId }: Props) {
           {connectState === "connected" ? "Connected ✓" : connectState === "requested" ? "Requested" : "Connect"}
         </button>
       </div>
+
+      {/* Listening Together banner */}
+      {listeningTogether && (
+        <div className="mx-4 mb-4 rounded-2xl p-3.5 flex items-center gap-3"
+          style={{ background: "linear-gradient(135deg, rgba(255,45,120,0.12), rgba(168,85,247,0.1))", border: "1px solid rgba(255,45,120,0.3)" }}>
+          {/* Dual pulse rings */}
+          <div className="relative shrink-0 flex items-center justify-center" style={{ width: 36, height: 36 }}>
+            <div className="absolute inset-0 rounded-full animate-ping" style={{ backgroundColor: "rgba(255,45,120,0.2)" }} />
+            <div className="relative w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)" }}>
+              <span style={{ fontSize: 14 }}>♪</span>
+            </div>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="text-white text-xs font-bold leading-tight">Listening together right now</p>
+            <p className="text-[10px] mt-0.5 truncate" style={{ color: "#FFB3CC" }}>You and {user.name.split(" ")[0]} are both playing <span className="font-semibold">"{user.track}"</span></p>
+          </div>
+          <button className="shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white"
+            style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)" }}>
+            Say hi →
+          </button>
+        </div>
+      )}
 
       {/* Compatibility card */}
       <div className="mx-4 rounded-2xl p-4 mb-4" style={{ backgroundColor: "#141414", border: `1px solid ${sc}25` }}>
