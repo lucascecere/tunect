@@ -5,7 +5,7 @@ import { SplashScreen } from "./screens/SplashScreen";
 import { ProfileScreen } from "./screens/ProfileScreen";
 import { DiscoverScreen } from "./screens/DiscoverScreen";
 import { FeedScreen } from "./screens/FeedScreen";
-import { NowPlayingScreen } from "./screens/NowPlayingScreen";
+import { ExploreScreen } from "./screens/ExploreScreen";
 import { UserProfileScreen } from "./screens/UserProfileScreen";
 import { MessagesScreen } from "./screens/MessagesScreen";
 import { TabBar } from "./TabBar";
@@ -14,7 +14,7 @@ export type Screen =
   | "splash"
   | "discover"
   | "feed"
-  | "nowPlaying"
+  | "explore"
   | "messages"
   | "profile"
   | "userProfile";
@@ -67,7 +67,7 @@ export function DemoShell() {
           {nav.screen === "splash"      && <SplashScreen go={go} />}
           {nav.screen === "discover"    && <DiscoverScreen go={go} />}
           {nav.screen === "feed"        && <FeedScreen go={go} />}
-          {nav.screen === "nowPlaying"  && <NowPlayingScreen go={go} />}
+          {nav.screen === "explore"     && <ExploreScreen go={go} />}
           {nav.screen === "userProfile" && <UserProfileScreen go={go} userId={nav.userId} />}
           {nav.screen === "messages"    && <MessagesScreen go={go} />}
           {nav.screen === "profile"     && <ProfileScreen go={go} />}
