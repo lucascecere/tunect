@@ -20,6 +20,12 @@ Read all files in `/docs` before writing any code. Start with this file.
 | `docs/tech-stack.md` | Frameworks, libraries, folder structure |
 | `docs/features.md` | MVP screens, user flows, component specs |
 | `docs/api.md` | Spotify OAuth flow, data endpoints, token refresh |
+| `docs/00-PROJECT-OVERVIEW.md` | Brand identity, target user, competitive context, platform strategy |
+| `docs/01-LANDING-PAGE.md` | Landing page full spec — all 10 sections, animations, copy direction |
+| `docs/02-DEMO-APP.md` | Interactive demo — all 6 screens, interactions, navigation flows |
+| `docs/03-PRODUCT-FEATURES.md` | Full product feature definitions — OG Fan, badges, compatibility, social graph |
+| `docs/04-COPY-BANK.md` | All approved copy, headlines, microcopy, badge tooltips, pitch lines |
+| `docs/05-BUILD-INSTRUCTIONS.md` | Build order, tech decisions, component specs, quality checklist |
 | `docs/06-DISCOVER-TAB.md` | Discover tab: Instagram Explore + Tinder card swipe hybrid, category grid, 4-slide profile cards, gestures |
 | `docs/07-CONCERTS-FEATURE.md` | Concerts tab: personalized show discovery, friend RSVPs, concert matchmaking, Bandsintown API, group planning |
 | `docs/08-pricing.md` | Pricing model: Free vs Pro ($2.99/mo), upgrade triggers, RevenueCat, ad policy |
