@@ -20,6 +20,10 @@ Read all files in `/docs` before writing any code. Start with this file.
 | `docs/tech-stack.md` | Frameworks, libraries, folder structure |
 | `docs/features.md` | MVP screens, user flows, component specs |
 | `docs/api.md` | Spotify OAuth flow, data endpoints, token refresh |
+| `docs/06-DISCOVER-TAB.md` | Discover tab: Instagram Explore + Tinder card swipe hybrid, category grid, 4-slide profile cards, gestures |
+| `docs/07-CONCERTS-FEATURE.md` | Concerts tab: personalized show discovery, friend RSVPs, concert matchmaking, Bandsintown API, group planning |
+| `docs/08-pricing.md` | Pricing model: Free vs Pro ($2.99/mo), upgrade triggers, RevenueCat, ad policy |
+| `docs/schema.sql` | Supabase database schema (7 tables + RLS + Realtime) |
 
 ---
 
