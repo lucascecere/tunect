@@ -38,7 +38,7 @@ export function DemoShell() {
       {/* Outer glow */}
       <div
         className="animate-glow-pulse pointer-events-none absolute inset-0 -z-10 scale-105 rounded-[48px] blur-2xl"
-        style={{ background: "radial-gradient(ellipse, rgba(255,45,120,0.2) 0%, rgba(168,85,247,0.15) 60%, transparent 80%)" }}
+        style={{ background: "radial-gradient(ellipse, rgba(232,168,56,0.2) 0%, rgba(194,59,59,0.12) 60%, transparent 80%)" }}
       />
 
       {/* Phone frame */}

@@ -8,32 +8,69 @@ interface Props {
   userId?: string;
 }
 
+const AMBER = "#E8A838";
+const AMBER_BG = "rgba(232,168,56,0.1)";
+const AMBER_BORDER = "rgba(232,168,56,0.25)";
+const GREEN = "#4CAF7D";
+const OG_GOLD = "#FFD700";
+
 const USERS: Record<string, any> = {
   "1": {
     name: "Jamie Chen", username: "jamiechen",
     bio: "music is the only language i speak fluently",
-    score: 94, sharedArtists: 14, sharedGenres: ["Indie R&B", "Neo-Soul"],
+    score: 94,
+    breakdown: [
+      { label: "Artist overlap",    pct: 88 },
+      { label: "Genre match",       pct: 95 },
+      { label: "Era alignment",     pct: 91 },
+      { label: "Listening energy",  pct: 82 },
+    ],
+    sharedArtists: 14, sharedSongs: 8, sharedGenres: 5,
+    sharedGenreList: ["Indie R&B", "Neo-Soul"],
     color: "from-cyan-500 to-teal-400",
-    artists: ["Frank Ocean", "Blood Orange", "SZA", "Solange", "Steve Lacy"],
-    genres: [{ genre: "Indie R&B", pct: 74 }, { genre: "Neo-Soul", pct: 55 }, { genre: "Alt-Pop", pct: 33 }],
-    label: "Soul Keeper",
+    artists: ["Frank Ocean", "SZA", "Blood Orange", "Solange", "Steve Lacy"],
+    genres: [
+      { genre: "Indie R&B", pct: 81 },
+      { genre: "Neo-Soul",  pct: 67 },
+      { genre: "Jazz",      pct: 43 },
+    ],
+    label: "Night Owl",
     playing: true, track: "Novacane",
-    sharedSongs: [
-      { name: "Novacane", artist: "Frank Ocean" },
-      { name: "Losing You", artist: "Solange" },
+    ogBadges: [
+      { artist: "Frank Ocean", badge: "🌟 Founder", gold: true  },
+      { artist: "Noname",      badge: "🔥 Day One", gold: false },
+    ],
+    sharedSongList: [
+      { name: "Novacane",       artist: "Frank Ocean" },
+      { name: "Losing You",     artist: "Solange" },
       { name: "Jesus Children", artist: "Blood Orange" },
     ],
   },
   "2": {
     name: "Mia Torres", username: "mia.beats",
     bio: "if it doesn't hit in 5 seconds i'm skipping",
-    score: 81, sharedArtists: 9, sharedGenres: ["R&B", "Pop"],
+    score: 81,
+    breakdown: [
+      { label: "Artist overlap",   pct: 74 },
+      { label: "Genre match",      pct: 83 },
+      { label: "Era alignment",    pct: 79 },
+      { label: "Listening energy", pct: 70 },
+    ],
+    sharedArtists: 9, sharedSongs: 5, sharedGenres: 3,
+    sharedGenreList: ["R&B", "Pop"],
     color: "from-pink-500 to-rose-400",
     artists: ["The Weeknd", "Doja Cat", "PinkPantheress", "Charli XCX", "Tyla"],
-    genres: [{ genre: "Pop R&B", pct: 66 }, { genre: "Dance Pop", pct: 48 }, { genre: "Electronic", pct: 29 }],
+    genres: [
+      { genre: "Pop R&B",    pct: 66 },
+      { genre: "Dance Pop",  pct: 48 },
+      { genre: "Electronic", pct: 29 },
+    ],
     label: "Pop Maximalist",
     playing: false,
-    sharedSongs: [
+    ogBadges: [
+      { artist: "PinkPantheress", badge: "🔥 OG Fan", gold: false },
+    ],
+    sharedSongList: [
       { name: "Can't Feel My Face", artist: "The Weeknd" },
       { name: "Paint The Town Red", artist: "Doja Cat" },
     ],
@@ -41,45 +78,83 @@ const USERS: Record<string, any> = {
   "3": {
     name: "Sam Park", username: "sampark",
     bio: "every drive needs a soundtrack",
-    score: 67, sharedArtists: 6, sharedGenres: ["Indie Rock", "Alternative"],
+    score: 67,
+    breakdown: [
+      { label: "Artist overlap",   pct: 58 },
+      { label: "Genre match",      pct: 71 },
+      { label: "Era alignment",    pct: 64 },
+      { label: "Listening energy", pct: 55 },
+    ],
+    sharedArtists: 6, sharedSongs: 2, sharedGenres: 2,
+    sharedGenreList: ["Indie Rock", "Alternative"],
     color: "from-yellow-500 to-orange-400",
     artists: ["Arctic Monkeys", "Radiohead", "Tame Impala", "Foals", "The National"],
-    genres: [{ genre: "Indie Rock", pct: 71 }, { genre: "Alternative", pct: 59 }, { genre: "Psychedelic", pct: 38 }],
+    genres: [
+      { genre: "Indie Rock",   pct: 71 },
+      { genre: "Alternative",  pct: 59 },
+      { genre: "Psychedelic",  pct: 38 },
+    ],
     label: "Indie Nocturnal",
     playing: true, track: "Do I Wanna Know?",
-    sharedSongs: [],
+    ogBadges: [],
+    sharedSongList: [],
   },
   "4": {
     name: "Riley Okafor", username: "rileyok",
     bio: "bars over beats always",
-    score: 53, sharedArtists: 4, sharedGenres: ["Hip-Hop"],
+    score: 53,
+    breakdown: [
+      { label: "Artist overlap",   pct: 44 },
+      { label: "Genre match",      pct: 58 },
+      { label: "Era alignment",    pct: 52 },
+      { label: "Listening energy", pct: 47 },
+    ],
+    sharedArtists: 4, sharedSongs: 1, sharedGenres: 2,
+    sharedGenreList: ["Hip-Hop"],
     color: "from-red-500 to-rose-500",
     artists: ["Kendrick Lamar", "J. Cole", "JID", "Isaiah Rashad", "Ab-Soul"],
-    genres: [{ genre: "Conscious Rap", pct: 68 }, { genre: "Hip-Hop", pct: 61 }, { genre: "Jazz Rap", pct: 27 }],
+    genres: [
+      { genre: "Conscious Rap", pct: 68 },
+      { genre: "Hip-Hop",       pct: 61 },
+      { genre: "Jazz Rap",      pct: 27 },
+    ],
     label: "Hip-Hop Purist",
     playing: false,
-    sharedSongs: [],
+    ogBadges: [],
+    sharedSongList: [],
   },
   "5": {
     name: "Alex Novak", username: "anovak",
     bio: "sad songs only, you wouldn't get it",
-    score: 44, sharedArtists: 2, sharedGenres: ["Indie Pop"],
+    score: 44,
+    breakdown: [
+      { label: "Artist overlap",   pct: 33 },
+      { label: "Genre match",      pct: 48 },
+      { label: "Era alignment",    pct: 41 },
+      { label: "Listening energy", pct: 38 },
+    ],
+    sharedArtists: 2, sharedSongs: 0, sharedGenres: 1,
+    sharedGenreList: ["Indie Pop"],
     color: "from-violet-500 to-purple-400",
     artists: ["Billie Eilish", "Lorde", "Mitski", "Phoebe Bridgers", "boygenius"],
-    genres: [{ genre: "Indie Pop", pct: 63 }, { genre: "Dream Pop", pct: 44 }, { genre: "Folk", pct: 31 }],
+    genres: [
+      { genre: "Indie Pop",  pct: 63 },
+      { genre: "Dream Pop",  pct: 44 },
+      { genre: "Folk",       pct: 31 },
+    ],
     label: "Slow Burn Listener",
     playing: false,
-    sharedSongs: [],
+    ogBadges: [],
+    sharedSongList: [],
   },
 };
 
-// The logged-in user's current track (mock)
 const MY_NOW_PLAYING = "Novacane";
 
 type ConnectState = "connect" | "requested" | "connected";
 
 function scoreColor(s: number) {
-  if (s >= 80) return "#22C55E";
+  if (s >= 80) return GREEN;
   if (s >= 60) return "#3B82F6";
   if (s >= 40) return "#F59E0B";
   return "#505050";
@@ -94,7 +169,7 @@ export function UserProfileScreen({ go, userId }: Props) {
 
   function handleConnect() {
     if (connectState === "connect") setConnectState("requested");
-    else if (connectState === "requested") setConnectState("connect"); // allow undo
+    else if (connectState === "requested") setConnectState("connect");
   }
 
   return (
@@ -103,7 +178,7 @@ export function UserProfileScreen({ go, userId }: Props) {
       <button
         onClick={() => go("discover")}
         className="flex items-center gap-1 px-4 pt-3 pb-1 text-sm font-medium"
-        style={{ color: "#FF2D78" }}
+        style={{ color: AMBER }}
       >
         ← Discover
       </button>
@@ -113,12 +188,20 @@ export function UserProfileScreen({ go, userId }: Props) {
         <div className={`w-20 h-20 rounded-full bg-gradient-to-br ${user.color} flex items-center justify-center text-white font-bold text-3xl mb-3`}>
           {user.name[0]}
         </div>
-        <p className="text-white text-xl font-bold" style={{ fontFamily: "var(--font-dm-sans)", letterSpacing: "-0.3px" }}>{user.name}</p>
+        <p className="text-white text-xl font-bold" style={{ fontFamily: "var(--font-dm-sans)", letterSpacing: "-0.3px" }}>
+          {user.name}
+        </p>
         <p className="text-[#A0A0A0] text-sm mt-0.5">@{user.username}</p>
         <p className="text-[#505050] text-xs mt-2 text-center italic">{user.bio}</p>
+        {/* Personality badge */}
+        <div className="mt-2 inline-flex items-center gap-1 rounded-full px-3 py-1"
+          style={{ backgroundColor: AMBER_BG, border: `1px solid ${AMBER_BORDER}` }}>
+          <span className="text-[11px] font-semibold" style={{ color: AMBER }}>🎵 {user.label}</span>
+        </div>
         {user.playing && (
-          <div className="mt-3 flex items-center gap-2 rounded-full px-3 py-1.5" style={{ backgroundColor: "rgba(255,45,120,0.1)", border: "1px solid rgba(255,45,120,0.2)" }}>
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ backgroundColor: "#FF2D78" }} />
+          <div className="mt-2.5 flex items-center gap-2 rounded-full px-3 py-1.5"
+            style={{ backgroundColor: "rgba(76,175,125,0.1)", border: "1px solid rgba(76,175,125,0.25)" }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ backgroundColor: GREEN }} />
             <span className="text-xs text-white">▶ {user.track}</span>
           </div>
         )}
@@ -130,10 +213,9 @@ export function UserProfileScreen({ go, userId }: Props) {
           onClick={() => setFollowed(!followed)}
           className="flex-1 rounded-full py-2.5 text-sm font-semibold transition-all"
           style={{
-            background: followed ? "transparent" : "linear-gradient(135deg, #FF2D78, #A855F7)",
-            color: followed ? "#A0A0A0" : "#fff",
-            border: followed ? "1px solid #2A2A2A" : "none",
-            boxShadow: followed ? "none" : "0 4px 16px rgba(255,45,120,0.3)",
+            backgroundColor: followed ? "transparent" : "#1E1E1E",
+            color: followed ? "#A0A0A0" : "#A0A0A0",
+            border: "1px solid #2A2A2A",
           }}
         >
           {followed ? "Following ✓" : "Follow"}
@@ -142,15 +224,10 @@ export function UserProfileScreen({ go, userId }: Props) {
           onClick={handleConnect}
           className="flex-1 rounded-full py-2.5 text-sm font-semibold transition-all"
           style={{
-            backgroundColor:
-              connectState === "connected" ? "rgba(34,197,94,0.12)" :
-              connectState === "requested" ? "#141414" : "#1E1E1E",
-            color:
-              connectState === "connected" ? "#22C55E" :
-              connectState === "requested" ? "#505050" : "#A0A0A0",
-            border:
-              connectState === "connected" ? "1px solid rgba(34,197,94,0.3)" :
-              connectState === "requested" ? "1px solid #2A2A2A" : "1px solid #2A2A2A",
+            backgroundColor: connectState === "connect" ? AMBER : connectState === "connected" ? "rgba(76,175,125,0.12)" : "#141414",
+            color: connectState === "connect" ? "#000" : connectState === "connected" ? GREEN : "#505050",
+            border: connectState === "connect" ? "none" : connectState === "connected" ? "1px solid rgba(76,175,125,0.3)" : "1px solid #2A2A2A",
+            boxShadow: connectState === "connect" ? `0 4px 16px rgba(232,168,56,0.3)` : "none",
           }}
         >
           {connectState === "connected" ? "Connected ✓" : connectState === "requested" ? "Requested" : "Connect"}
@@ -160,83 +237,108 @@ export function UserProfileScreen({ go, userId }: Props) {
       {/* Listening Together banner */}
       {listeningTogether && (
         <div className="mx-4 mb-4 rounded-2xl p-3.5 flex items-center gap-3"
-          style={{ background: "linear-gradient(135deg, rgba(255,45,120,0.12), rgba(168,85,247,0.1))", border: "1px solid rgba(255,45,120,0.3)" }}>
-          {/* Dual pulse rings */}
+          style={{ background: "linear-gradient(135deg, rgba(76,175,125,0.1), rgba(232,168,56,0.08))", border: "1px solid rgba(76,175,125,0.3)" }}>
           <div className="relative shrink-0 flex items-center justify-center" style={{ width: 36, height: 36 }}>
-            <div className="absolute inset-0 rounded-full animate-ping" style={{ backgroundColor: "rgba(255,45,120,0.2)" }} />
-            <div className="relative w-8 h-8 rounded-full flex items-center justify-center" style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)" }}>
+            <div className="absolute inset-0 rounded-full animate-ping" style={{ backgroundColor: "rgba(76,175,125,0.2)" }} />
+            <div className="relative w-8 h-8 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: GREEN }}>
               <span style={{ fontSize: 14 }}>♪</span>
             </div>
           </div>
           <div className="flex-1 min-w-0">
             <p className="text-white text-xs font-bold leading-tight">Listening together right now</p>
-            <p className="text-[10px] mt-0.5 truncate" style={{ color: "#FFB3CC" }}>You and {user.name.split(" ")[0]} are both playing <span className="font-semibold">"{user.track}"</span></p>
+            <p className="text-[10px] mt-0.5 truncate text-[#A0A0A0]">
+              You and {user.name.split(" ")[0]} are both playing <span className="font-semibold text-white">"{user.track}"</span>
+            </p>
           </div>
-          <button className="shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold text-white"
-            style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)" }}>
+          <button className="shrink-0 rounded-full px-2.5 py-1 text-[10px] font-semibold text-black"
+            style={{ backgroundColor: AMBER }}>
             Say hi →
           </button>
         </div>
       )}
 
-      {/* Compatibility card */}
+      {/* Compatibility card — 4 breakdown bars */}
       <div className="mx-4 rounded-2xl p-4 mb-4" style={{ backgroundColor: "#141414", border: `1px solid ${sc}25` }}>
-        <div className="flex items-baseline gap-2 mb-3">
+        <div className="flex items-baseline gap-2 mb-1">
           <span className="text-4xl font-bold" style={{ color: sc, fontFamily: "var(--font-dm-sans)" }}>{user.score}%</span>
           <span className="text-[#A0A0A0] text-base">compatible</span>
         </div>
-        <div className="h-1.5 rounded-full overflow-hidden mb-3" style={{ backgroundColor: "#2A2A2A" }}>
-          <div className="h-full rounded-full" style={{ width: `${user.score}%`, backgroundColor: sc }} />
-        </div>
-        <div className="flex items-center gap-2 flex-wrap">
-          <span className="text-xs text-[#A0A0A0]">{user.sharedArtists} shared artists</span>
-          <span className="text-[#505050] text-xs">·</span>
-          <span className="text-xs text-[#A0A0A0]">{user.sharedGenres.join(", ")}</span>
-        </div>
-      </div>
-
-      {/* Top Artists */}
-      <div className="px-4 mb-4">
-        <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-3">Top Artists</p>
-        <div className="flex flex-col gap-2.5">
-          {user.artists.map((a: string, i: number) => (
-            <div key={a} className="flex items-center gap-3">
-              <div className={`w-9 h-9 rounded-lg bg-gradient-to-br ${user.color} shrink-0 flex items-center justify-center text-white text-xs font-bold`}>
-                {a[0]}
+        <p className="text-[#505050] text-[10px] mb-3">
+          {user.sharedArtists} shared artists · {user.sharedSongs} shared songs · {user.sharedGenres} shared genres
+        </p>
+        {/* 4 breakdown bars */}
+        <div className="flex flex-col gap-2">
+          {user.breakdown.map(({ label, pct }: { label: string; pct: number }) => (
+            <div key={label}>
+              <div className="flex justify-between mb-0.5">
+                <span className="text-[#A0A0A0] text-[10px]">{label}</span>
+                <span className="text-xs font-semibold" style={{ color: sc }}>{pct}%</span>
               </div>
-              <span className="text-white text-sm flex-1">{a}</span>
-              <span className="text-[#505050] text-xs">#{i + 1}</span>
+              <div className="h-1 rounded-full overflow-hidden" style={{ backgroundColor: "#2A2A2A" }}>
+                <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: sc }} />
+              </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Music Personality */}
+      {/* Their Taste DNA */}
       <div className="px-4 mb-4">
-        <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-3">Music Personality</p>
-        <div className="rounded-2xl p-4" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
-          <p className="text-lg font-bold mb-3" style={{ color: "#FF2D78", fontFamily: "var(--font-dm-sans)" }}>{user.label}</p>
+        <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-3">Their Taste DNA</p>
+        <div className="rounded-2xl p-3.5" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
           {user.genres.map(({ genre, pct }: any) => (
-            <div key={genre} className="mb-2">
-              <div className="flex justify-between mb-1">
+            <div key={genre} className="mb-2 last:mb-0">
+              <div className="flex justify-between mb-0.5">
                 <span className="text-[#A0A0A0] text-xs">{genre}</span>
                 <span className="text-[#505050] text-xs">{pct}%</span>
               </div>
               <div className="h-1 rounded-full overflow-hidden" style={{ backgroundColor: "#2A2A2A" }}>
-                <div className="h-full rounded-full" style={{ width: `${pct}%`, background: "linear-gradient(90deg, #FF2D78, #A855F7)" }} />
+                <div className="h-full rounded-full" style={{ width: `${pct}%`, backgroundColor: AMBER }} />
               </div>
             </div>
           ))}
         </div>
       </div>
 
+      {/* OG Badges */}
+      {user.ogBadges?.length > 0 && (
+        <div className="px-4 mb-4">
+          <p className="text-[10px] font-semibold uppercase tracking-widest mb-2.5" style={{ color: OG_GOLD }}>
+            Their OG Badges
+          </p>
+          <div className="flex flex-col gap-2">
+            {user.ogBadges.map((b: any) => (
+              <div key={b.artist} className="flex items-center gap-3 rounded-xl px-3 py-2"
+                style={{
+                  backgroundColor: "#141414",
+                  border: b.gold ? "1px solid rgba(255,215,0,0.3)" : "1px solid #2A2A2A",
+                  boxShadow: b.gold ? "0 0 12px rgba(255,215,0,0.1)" : "none",
+                }}>
+                <span className="text-sm">🎤</span>
+                <span className="text-white text-xs font-semibold flex-1">{b.artist}</span>
+                <span className="text-[10px] font-bold rounded-full px-2 py-0.5"
+                  style={{
+                    color: b.gold ? OG_GOLD : AMBER,
+                    backgroundColor: b.gold ? "rgba(255,215,0,0.1)" : AMBER_BG,
+                    border: `1px solid ${b.gold ? "rgba(255,215,0,0.3)" : AMBER_BORDER}`,
+                  }}>
+                  {b.badge}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       {/* Songs You Both Love */}
       <div className="px-4 pb-6">
         <p className="text-[10px] font-semibold text-[#505050] uppercase tracking-widest mb-3">Songs You Both Love</p>
-        {user.sharedSongs?.length > 0 ? (
+        {user.sharedSongList?.length > 0 ? (
           <div className="flex flex-col gap-2">
-            {user.sharedSongs.map((s: any) => (
-              <div key={s.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
+            {user.sharedSongList.map((s: any) => (
+              <div key={s.name} className="flex items-center gap-3 rounded-xl px-3 py-2.5"
+                style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
                 <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-zinc-700 to-zinc-600 flex items-center justify-center text-white text-xs shrink-0">♫</div>
                 <div className="flex-1 min-w-0">
                   <p className="text-white text-sm font-medium truncate">{s.name}</p>

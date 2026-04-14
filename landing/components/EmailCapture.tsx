@@ -65,7 +65,7 @@ export function EmailCapture({
         onChange={(e) => setEmail(e.target.value)}
         placeholder={placeholder}
         required
-        className={`w-full rounded-full border border-[#2A2A2A] bg-[#141414] text-white placeholder-[#505050] outline-none transition-all focus:border-[#FF2D78] focus:ring-2 focus:ring-[#FF2D78]/20 sm:flex-1 ${
+        className={`w-full rounded-full border border-[#2A2A2A] bg-[#141414] text-white placeholder-[#505050] outline-none transition-all focus:border-[#E8A838] focus:ring-2 focus:ring-[#E8A838]/20 sm:flex-1 ${
           size === "large" ? "px-6 py-4 text-base" : "px-5 py-3 text-sm"
         }`}
       />
@@ -77,7 +77,7 @@ export function EmailCapture({
         }`}
         style={{
           fontFamily: "var(--font-dm-sans)",
-          background: "linear-gradient(135deg, #FF2D78, #A855F7)",
+          background: "linear-gradient(135deg, #E8A838, #C23B3B)",
         }}
       >
         {loading ? (

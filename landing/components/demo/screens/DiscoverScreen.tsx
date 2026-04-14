@@ -88,12 +88,12 @@ export function DiscoverScreen({ go }: Props) {
               <button
                 onClick={() => go("userProfile", LISTENING_TOGETHER.user.id)}
                 className="w-full rounded-2xl p-3.5 text-left transition-opacity active:opacity-70"
-                style={{ background: "linear-gradient(135deg, rgba(255,45,120,0.1), rgba(168,85,247,0.08))", border: "1px solid rgba(255,45,120,0.3)" }}
+                style={{ background: "linear-gradient(135deg, rgba(232,168,56,0.1), rgba(168,85,247,0.08))", border: "1px solid rgba(232,168,56,0.3)" }}
               >
                 <div className="flex items-center gap-3">
                   {/* Avatar with outer pulse ring */}
                   <div className="relative shrink-0">
-                    <div className="absolute -inset-1 rounded-full animate-ping" style={{ backgroundColor: "rgba(255,45,120,0.2)" }} />
+                    <div className="absolute -inset-1 rounded-full animate-ping" style={{ backgroundColor: "rgba(232,168,56,0.2)" }} />
                     <div className={`relative w-11 h-11 rounded-full bg-gradient-to-br ${LISTENING_TOGETHER.user.color} flex items-center justify-center text-white font-bold text-base`}>
                       {LISTENING_TOGETHER.user.name[0]}
                     </div>
@@ -102,14 +102,14 @@ export function DiscoverScreen({ go }: Props) {
                     <div className="flex items-center gap-1.5 mb-0.5">
                       <p className="text-white text-sm font-bold">{LISTENING_TOGETHER.user.name}</p>
                       <span className="text-[9px] font-semibold rounded-full px-1.5 py-0.5"
-                        style={{ backgroundColor: "rgba(255,45,120,0.15)", color: "#FF2D78" }}>
+                        style={{ backgroundColor: "rgba(232,168,56,0.15)", color: "#E8A838" }}>
                         ● live
                       </span>
                     </div>
                     <p className="text-[#505050] text-[10px]">@{LISTENING_TOGETHER.user.handle}</p>
                   </div>
                   <div className="shrink-0 text-right">
-                    <p className="text-[10px] font-semibold" style={{ color: "#FF6FA3" }}>View →</p>
+                    <p className="text-[10px] font-semibold" style={{ color: "#F0C060" }}>View →</p>
                   </div>
                 </div>
                 {/* Track card */}
@@ -121,7 +121,7 @@ export function DiscoverScreen({ go }: Props) {
                   </div>
                   <div className="flex items-center gap-0.5 shrink-0">
                     {[3,5,4,6,3,5].map((h, i) => (
-                      <div key={i} className="w-0.5 rounded-full animate-pulse" style={{ height: h * 2, backgroundColor: "#FF2D78", animationDelay: `${i * 0.1}s` }} />
+                      <div key={i} className="w-0.5 rounded-full animate-pulse" style={{ height: h * 2, backgroundColor: "#E8A838", animationDelay: `${i * 0.1}s` }} />
                     ))}
                   </div>
                 </div>
@@ -174,7 +174,7 @@ function UserRow({ user, go }: { user: typeof ALL_USERS[0]; go: (s: Screen, id?:
           {user.name[0]}
         </div>
         {user.playing && (
-          <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-[#141414] bg-[#FF2D78] animate-pulse" />
+          <div className="absolute bottom-0 right-0 w-3 h-3 rounded-full border-2 border-[#141414] bg-[#E8A838] animate-pulse" />
         )}
       </div>
 
@@ -182,7 +182,7 @@ function UserRow({ user, go }: { user: typeof ALL_USERS[0]; go: (s: Screen, id?:
         <p className="text-white text-sm font-semibold truncate">{user.name}</p>
         <p className="text-[#505050] text-[10px]">@{user.handle}</p>
         {user.playing && user.track ? (
-          <p className="text-[10px] mt-0.5 truncate" style={{ color: "#FF6FA3" }}>▶ {user.track}</p>
+          <p className="text-[10px] mt-0.5 truncate" style={{ color: "#F0C060" }}>▶ {user.track}</p>
         ) : (
           <p className="text-[#A0A0A0] text-[10px] mt-0.5 truncate">{user.artists.slice(0, 2).join(" · ")}</p>
         )}

@@ -91,7 +91,7 @@ function GridCard({ card }: { card: typeof FOR_YOU_CARDS[0] }) {
         style={{ width: 24, height: 24, borderRadius: 12, backgroundColor: "rgba(0,0,0,0.45)" }}
         onClick={() => setLiked((l) => !l)}
       >
-        <span style={{ fontSize: 10, color: liked ? "#FF2D78" : "#fff" }}>{liked ? "♥" : "♡"}</span>
+        <span style={{ fontSize: 10, color: liked ? "#E8A838" : "#fff" }}>{liked ? "♥" : "♡"}</span>
       </button>
 
       <div className="relative px-2.5 pt-4 pb-2.5"
@@ -117,8 +117,8 @@ function FriendPost({ post }: { post: typeof FRIEND_ACTIVITY[0] }) {
             <span className="text-white text-xs font-semibold">{post.user}</span>
             {post.type === "now_playing" && (
               <span className="flex items-center gap-1 text-[9px] font-semibold rounded-full px-1.5 py-0.5"
-                style={{ backgroundColor: "rgba(255,45,120,0.12)", color: "#FF2D78" }}>
-                <span className="w-1 h-1 rounded-full bg-[#FF2D78] animate-pulse inline-block" />
+                style={{ backgroundColor: "rgba(232,168,56,0.12)", color: "#E8A838" }}>
+                <span className="w-1 h-1 rounded-full bg-[#E8A838] animate-pulse inline-block" />
                 live
               </span>
             )}
@@ -141,7 +141,7 @@ function FriendPost({ post }: { post: typeof FRIEND_ACTIVITY[0] }) {
 
       <div className="flex items-center gap-4">
         <button onClick={() => setLiked((l) => !l)} className="flex items-center gap-1 text-[10px]"
-          style={{ color: liked ? "#FF2D78" : "#505050" }}>
+          style={{ color: liked ? "#E8A838" : "#505050" }}>
           <span>{liked ? "♥" : "♡"}</span><span>{liked ? "1" : "Like"}</span>
         </button>
         <button className="flex items-center gap-1 text-[10px] text-[#505050]">
@@ -176,9 +176,9 @@ function RegionalTrending() {
           <button key={r.id} onClick={() => setActive(r.id)}
             className="shrink-0 flex items-center gap-1.5 rounded-full px-3 py-1.5 text-xs font-semibold transition-all"
             style={{
-              backgroundColor: active === r.id ? "rgba(255,45,120,0.12)" : "#141414",
-              border: `1px solid ${active === r.id ? "#FF2D78" : "#2A2A2A"}`,
-              color: active === r.id ? "#FF2D78" : "#505050",
+              backgroundColor: active === r.id ? "rgba(232,168,56,0.12)" : "#141414",
+              border: `1px solid ${active === r.id ? "#E8A838" : "#2A2A2A"}`,
+              color: active === r.id ? "#E8A838" : "#505050",
             }}>
             <span>{r.emoji}</span>{r.label}
           </button>
@@ -199,7 +199,7 @@ function RegionalTrending() {
             </div>
             {i === 0 && (
               <span className="shrink-0 text-[9px] font-bold rounded-full px-2 py-0.5"
-                style={{ backgroundColor: "rgba(255,45,120,0.12)", color: "#FF2D78" }}>
+                style={{ backgroundColor: "rgba(232,168,56,0.12)", color: "#E8A838" }}>
                 🔥 #1
               </span>
             )}
@@ -232,7 +232,7 @@ export function ExploreScreen({ go }: Props) {
               {t}
               {tab === t && (
                 <div className="absolute bottom-0 left-0 right-0 h-0.5 rounded-full"
-                  style={{ background: "linear-gradient(90deg,#FF2D78,#A855F7)" }} />
+                  style={{ background: "linear-gradient(90deg,#E8A838,#C23B3B)" }} />
               )}
             </button>
           ))}

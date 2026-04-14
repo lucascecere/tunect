@@ -36,19 +36,19 @@ function ProfileMockup() {
     <PhoneFrame>
       <div className="px-3.5 pt-1.5 pb-16 overflow-hidden">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-xs font-bold" style={{ color: "#FF2D78" }}>tunect</span>
+          <span className="text-xs font-bold" style={{ color: "#E8A838" }}>tunect</span>
           <span className="text-[#505050] text-sm">⚙</span>
         </div>
         <div className="flex items-center gap-2.5 mb-2.5">
-          <div className="h-11 w-11 rounded-full bg-gradient-to-br from-[#FF2D78] to-[#A855F7] flex items-center justify-center text-white text-base font-bold shrink-0">A</div>
+          <div className="h-11 w-11 rounded-full bg-gradient-to-br from-[#E8A838] to-[#C23B3B] flex items-center justify-center text-white text-base font-bold shrink-0">A</div>
           <div>
             <p className="text-white text-xs font-semibold">Alex Rivera</p>
             <p className="text-[#505050] text-[10px]">@alexrivera</p>
             <p className="text-[9px] font-semibold mt-0.5 text-gradient">Soul Keeper</p>
           </div>
         </div>
-        <div className="rounded-xl bg-[#141414] p-2.5 flex items-center gap-2 mb-2.5 animate-border-glow" style={{ border: "1px solid rgba(255,45,120,0.2)" }}>
-          <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-[#FF2D78] shrink-0" />
+        <div className="rounded-xl bg-[#141414] p-2.5 flex items-center gap-2 mb-2.5 animate-border-glow" style={{ border: "1px solid rgba(232,168,56,0.2)" }}>
+          <span className="animate-pulse-dot h-1.5 w-1.5 rounded-full bg-[#E8A838] shrink-0" />
           <div className="h-8 w-8 rounded-md bg-gradient-to-br from-cyan-600 to-teal-500 shrink-0" />
           <div className="min-w-0 flex-1">
             <p className="text-white text-[10px] font-medium truncate">Novacane</p>
@@ -61,7 +61,7 @@ function ProfileMockup() {
         <div className="flex gap-1.5 mb-2.5">
           {["Week", "Month", "All time"].map((t, i) => (
             <div key={t} className="rounded-full px-2.5 py-0.5 text-[9px] font-medium"
-              style={i === 1 ? { backgroundColor: "rgba(255,45,120,0.12)", border: "1px solid #FF2D78", color: "#FF2D78" }
+              style={i === 1 ? { backgroundColor: "rgba(232,168,56,0.12)", border: "1px solid #E8A838", color: "#E8A838" }
                           : { backgroundColor: "#141414", border: "1px solid #2A2A2A", color: "#505050" }}>{t}</div>
           ))}
         </div>
@@ -84,7 +84,7 @@ function ProfileMockup() {
                 <span className="text-[#505050] text-[8px]">{p}%</span>
               </div>
               <div className="h-0.5 rounded-full bg-[#2A2A2A] overflow-hidden">
-                <div className="h-full rounded-full" style={{ width: `${p}%`, background: "linear-gradient(90deg,#FF2D78,#A855F7)" }} />
+                <div className="h-full rounded-full" style={{ width: `${p}%`, background: "linear-gradient(90deg,#E8A838,#C23B3B)" }} />
               </div>
             </div>
           ))}
@@ -92,8 +92,8 @@ function ProfileMockup() {
       </div>
       <div className="absolute bottom-0 left-0 right-0 border-t border-[#1E1E1E] flex items-center justify-around px-3 py-1.5 bg-[#0A0A0A]">
         {["⊕","▦","♪","✉","◉"].map((icon, i) => (
-          <div key={i} className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] ${i === 4 ? "text-[#FF2D78]" : "text-[#505050]"}`}
-            style={i === 2 ? { background: "linear-gradient(135deg,#FF2D78,#A855F7)", color: "#fff" } : {}}>{icon}</div>
+          <div key={i} className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] ${i === 4 ? "text-[#E8A838]" : "text-[#505050]"}`}
+            style={i === 2 ? { background: "linear-gradient(135deg,#E8A838,#C23B3B)", color: "#fff" } : {}}>{icon}</div>
         ))}
       </div>
     </PhoneFrame>
@@ -105,7 +105,7 @@ function ProfileMockup() {
 function DiscoverMockup() {
   const users = [
     { name: "Jamie Chen",   score: 94, color: "from-cyan-500 to-teal-400",      sc: "#22C55E", playing: true  },
-    { name: "Mia Torres",   score: 81, color: "from-pink-500 to-rose-400",      sc: "#A855F7", playing: false },
+    { name: "Mia Torres",   score: 81, color: "from-pink-500 to-rose-400",      sc: "#C23B3B", playing: false },
     { name: "Sam Park",     score: 67, color: "from-yellow-500 to-orange-400",  sc: "#F59E0B", playing: true  },
     { name: "Riley Okafor", score: 53, color: "from-red-500 to-rose-500",       sc: "#F59E0B", playing: false },
   ];
@@ -119,7 +119,7 @@ function DiscoverMockup() {
         <div className="flex gap-1.5 mb-2.5">
           {["All", "Live now", "Indie Rock"].map((f, i) => (
             <div key={f} className="rounded-full px-2 py-0.5 text-[8px] font-medium"
-              style={i === 0 ? { backgroundColor: "rgba(255,45,120,0.12)", border: "1px solid #FF2D78", color: "#FF2D78" }
+              style={i === 0 ? { backgroundColor: "rgba(232,168,56,0.12)", border: "1px solid #E8A838", color: "#E8A838" }
                            : { backgroundColor: "#141414", border: "1px solid #2A2A2A", color: "#505050" }}>{f}</div>
           ))}
         </div>
@@ -128,11 +128,11 @@ function DiscoverMockup() {
             <div key={u.name} className="flex items-center gap-2 rounded-xl p-2" style={{ backgroundColor: "#141414", border: "1px solid #2A2A2A" }}>
               <div className="relative shrink-0">
                 <div className={`h-9 w-9 rounded-full bg-gradient-to-br ${u.color} flex items-center justify-center text-white text-xs font-bold`}>{u.name[0]}</div>
-                {u.playing && <div className="absolute bottom-0 right-0 w-2 h-2 rounded-full border border-[#141414]" style={{ backgroundColor: "#FF2D78" }} />}
+                {u.playing && <div className="absolute bottom-0 right-0 w-2 h-2 rounded-full border border-[#141414]" style={{ backgroundColor: "#E8A838" }} />}
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white text-[10px] font-semibold truncate">{u.name}</p>
-                {u.playing && <p className="text-[9px]" style={{ color: "#FF2D78" }}>▶ listening now</p>}
+                {u.playing && <p className="text-[9px]" style={{ color: "#E8A838" }}>▶ listening now</p>}
                 {!u.playing && <p className="text-[9px] text-[#505050]">@{u.name.toLowerCase().replace(" ", "")}</p>}
               </div>
               <div className="shrink-0 rounded-full px-1.5 py-0.5" style={{ border: `1px solid ${u.sc}40`, backgroundColor: `${u.sc}15` }}>
@@ -144,8 +144,8 @@ function DiscoverMockup() {
       </div>
       <div className="absolute bottom-0 left-0 right-0 border-t border-[#1E1E1E] flex items-center justify-around px-3 py-1.5 bg-[#0A0A0A]">
         {["⊕","▦","♪","✉","◉"].map((icon, i) => (
-          <div key={i} className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] ${i === 0 ? "text-[#FF2D78]" : "text-[#505050]"}`}
-            style={i === 2 ? { background: "linear-gradient(135deg,#FF2D78,#A855F7)", color: "#fff" } : {}}>{icon}</div>
+          <div key={i} className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] ${i === 0 ? "text-[#E8A838]" : "text-[#505050]"}`}
+            style={i === 2 ? { background: "linear-gradient(135deg,#E8A838,#C23B3B)", color: "#fff" } : {}}>{icon}</div>
         ))}
       </div>
     </PhoneFrame>
@@ -176,7 +176,7 @@ function MessagesMockup() {
               </div>
               {c.unread > 0 && (
                 <div className="w-4 h-4 rounded-full flex items-center justify-center text-white text-[8px] font-bold shrink-0"
-                  style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)" }}>{c.unread}</div>
+                  style={{ background: "linear-gradient(135deg,#E8A838,#C23B3B)" }}>{c.unread}</div>
               )}
             </div>
             {i < 2 && <div className="ml-[52px] h-px bg-[#1E1E1E]" />}
@@ -186,7 +186,7 @@ function MessagesMockup() {
           <p className="text-[#505050] text-[9px] mb-1.5">💡 You both love Frank Ocean — ask them which album got them first.</p>
           <div className="flex justify-end">
             <div className="rounded-xl px-2.5 py-1.5 text-white text-[10px]"
-              style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)", borderBottomRightRadius: 3 }}>
+              style={{ background: "linear-gradient(135deg,#E8A838,#C23B3B)", borderBottomRightRadius: 3 }}>
               Blonde era for sure 🙌
             </div>
           </div>
@@ -194,8 +194,8 @@ function MessagesMockup() {
       </div>
       <div className="absolute bottom-0 left-0 right-0 border-t border-[#1E1E1E] flex items-center justify-around px-3 py-1.5 bg-[#0A0A0A]">
         {["⊕","▦","♪","✉","◉"].map((icon, i) => (
-          <div key={i} className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] ${i === 3 ? "text-[#FF2D78]" : "text-[#505050]"}`}
-            style={i === 2 ? { background: "linear-gradient(135deg,#FF2D78,#A855F7)", color: "#fff" } : {}}>{icon}</div>
+          <div key={i} className={`flex h-6 w-6 items-center justify-center rounded-full text-[10px] ${i === 3 ? "text-[#E8A838]" : "text-[#505050]"}`}
+            style={i === 2 ? { background: "linear-gradient(135deg,#E8A838,#C23B3B)", color: "#fff" } : {}}>{icon}</div>
         ))}
       </div>
     </PhoneFrame>
@@ -214,7 +214,7 @@ export default function Home() {
           <Logo size={32} />
           <div className="flex items-center gap-2 sm:gap-3">
             <a href="/demo"
-              className="rounded-full border border-[#2A2A2A] px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-[#A0A0A0] transition-all hover:border-[#FF2D78]/40 hover:text-white"
+              className="rounded-full border border-[#2A2A2A] px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-[#A0A0A0] transition-all hover:border-[#E8A838]/40 hover:text-white"
               style={{ fontFamily: "var(--font-dm-sans)" }}>
               Try demo
             </a>
@@ -230,17 +230,17 @@ export default function Home() {
       {/* ── Hero ── */}
       <section className="relative overflow-hidden px-4 sm:px-6 pt-16 sm:pt-24 md:pt-32 pb-16 sm:pb-24">
         {/* Animated background orbs */}
-        <div className="animate-orb-a pointer-events-none absolute left-1/4 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#FF2D78]/10 blur-[120px]" />
-        <div className="animate-orb-b pointer-events-none absolute right-1/4 top-10 h-[600px] w-[600px] translate-x-1/2 rounded-full bg-[#A855F7]/10 blur-[120px]" />
-        <div className="pointer-events-none absolute left-1/2 top-1/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-[#FF2D78]/5 blur-[80px]" />
+        <div className="animate-orb-a pointer-events-none absolute left-1/4 top-0 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-[#E8A838]/10 blur-[120px]" />
+        <div className="animate-orb-b pointer-events-none absolute right-1/4 top-10 h-[600px] w-[600px] translate-x-1/2 rounded-full bg-[#C23B3B]/10 blur-[120px]" />
+        <div className="pointer-events-none absolute left-1/2 top-1/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-[#E8A838]/5 blur-[80px]" />
 
         <div className="relative mx-auto max-w-6xl">
           {/* Hero text — staggered entrance */}
           <div className="hero-sequence text-center mb-10 sm:mb-14">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border px-3 sm:px-4 py-1.5 text-xs sm:text-sm mb-6"
-                style={{ fontFamily: "var(--font-dm-sans)", borderColor: "rgba(255,45,120,0.3)", backgroundColor: "rgba(255,45,120,0.08)", color: "#FFB3CC" }}>
-                <span className="h-1.5 w-1.5 rounded-full bg-[#FF2D78] animate-pulse-dot" />
+                style={{ fontFamily: "var(--font-dm-sans)", borderColor: "rgba(232,168,56,0.3)", backgroundColor: "rgba(232,168,56,0.08)", color: "#F5DFA0" }}>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#E8A838] animate-pulse-dot" />
                 Now accepting early access
               </div>
             </div>
@@ -259,7 +259,7 @@ export default function Home() {
             <div className="flex flex-col items-center gap-3 mt-6">
               <EmailCapture size="large" />
               <a href="/demo" className="text-sm font-medium transition-colors hover:text-white"
-                style={{ color: "#FF6FA3", fontFamily: "var(--font-dm-sans)" }}>
+                style={{ color: "#F0C060", fontFamily: "var(--font-dm-sans)" }}>
                 or try the interactive demo →
               </a>
             </div>
@@ -274,7 +274,7 @@ export default function Home() {
             {/* Center — Profile */}
             <div className="animate-float relative">
               <div className="animate-glow-pulse absolute inset-0 -z-10 scale-110 rounded-[44px] blur-2xl"
-                style={{ background: "radial-gradient(ellipse, rgba(255,45,120,0.25) 0%, rgba(168,85,247,0.15) 60%, transparent 80%)" }} />
+                style={{ background: "radial-gradient(ellipse, rgba(232,168,56,0.25) 0%, rgba(194,59,59,0.15) 60%, transparent 80%)" }} />
               <ProfileMockup />
             </div>
             {/* Right — Messages (hidden on mobile) */}
@@ -299,7 +299,7 @@ export default function Home() {
                 "DMs unlock when both say yes",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 mx-8">
-                  <span className="h-1 w-1 rounded-full bg-[#FF2D78] shrink-0" />
+                  <span className="h-1 w-1 rounded-full bg-[#E8A838] shrink-0" />
                   <span className="text-xs text-[#505050]" style={{ fontFamily: "var(--font-dm-sans)" }}>{item}</span>
                 </div>
               ))}
@@ -307,6 +307,42 @@ export default function Home() {
           ))}
         </div>
       </div>
+
+      {/* ── Problem Statement ── */}
+      <section className="border-b border-[#1E1E1E] px-4 sm:px-6 py-16 sm:py-24 relative overflow-hidden">
+        <div className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at 30% 50%, rgba(232,168,56,0.05) 0%, transparent 60%)" }} />
+        <div className="mx-auto max-w-4xl">
+          <AnimateIn className="text-center mb-10 sm:mb-14">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              Music is the closest thing to your soul.<br />
+              <span className="text-[#A0A0A0]">So why is it buried in a streaming app?</span>
+            </h2>
+          </AnimateIn>
+          <AnimateIn delay={100}>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {[
+                { icon: "🎧", problem: "Spotify shows you what your friends are playing.", solution: "Nobody's been asking who you should be friends with." },
+                { icon: "🔗", problem: "You share links over Instagram DMs.", solution: "We built somewhere those conversations actually live." },
+                { icon: "🎵", problem: "Your Wrapped disappears by January.", solution: "Tunect keeps every year forever — your whole story." },
+              ].map(({ icon, problem, solution }, i) => (
+                <AnimateIn key={i} delay={i * 100}>
+                  <div className="rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 h-full">
+                    <div className="text-3xl mb-4">{icon}</div>
+                    <p className="text-[#A0A0A0] text-sm leading-relaxed mb-2">{problem}</p>
+                    <p className="text-white text-sm font-semibold leading-relaxed">{solution}</p>
+                  </div>
+                </AnimateIn>
+              ))}
+            </div>
+          </AnimateIn>
+          <AnimateIn delay={200} className="text-center mt-10">
+            <p className="text-lg sm:text-xl text-[#A0A0A0] max-w-2xl mx-auto">
+              Tunect is the answer.
+            </p>
+          </AnimateIn>
+        </div>
+      </section>
 
       {/* ── How it works ── */}
       <section className="border-b border-[#1E1E1E] px-4 sm:px-6 py-16 sm:py-24">
@@ -326,23 +362,23 @@ export default function Home() {
               {
                 step: "01", title: "Connect Spotify",
                 body: "Log in with Spotify. We read your listening history — never your playlists, never posting to your account.",
-                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#FF2D78"/></svg>,
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z" fill="#E8A838"/></svg>,
               },
               {
                 step: "02", title: "Get your live profile",
                 body: "Top artists, tracks, genre DNA, personality label — and what you're playing right now. Always live, never stale.",
-                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="#FF2D78"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="#A855F7" opacity="0.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="#A855F7" opacity="0.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="#FF2D78" opacity="0.4"/></svg>,
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" fill="#E8A838"/><rect x="14" y="3" width="7" height="7" rx="1.5" fill="#C23B3B" opacity="0.8"/><rect x="3" y="14" width="7" height="7" rx="1.5" fill="#C23B3B" opacity="0.6"/><rect x="14" y="14" width="7" height="7" rx="1.5" fill="#E8A838" opacity="0.4"/></svg>,
               },
               {
                 step: "03", title: "Find your people",
                 body: "Browse users sorted by compatibility score. Follow freely, Connect mutually — DMs unlock when both say yes.",
-                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.5" fill="#FF2D78"/><circle cx="15" cy="8" r="3.5" fill="#A855F7" opacity="0.7"/><path d="M2 20c0-3.31 3.13-6 7-6s7 2.69 7 6" stroke="#FF2D78" strokeWidth="1.5" strokeLinecap="round"/><path d="M17 14c2.21 0 4 1.79 4 4" stroke="#A855F7" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/></svg>,
+                icon: <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.5" fill="#E8A838"/><circle cx="15" cy="8" r="3.5" fill="#C23B3B" opacity="0.7"/><path d="M2 20c0-3.31 3.13-6 7-6s7 2.69 7 6" stroke="#E8A838" strokeWidth="1.5" strokeLinecap="round"/><path d="M17 14c2.21 0 4 1.79 4 4" stroke="#C23B3B" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/></svg>,
               },
             ].map(({ step, title, body, icon }, i) => (
               <AnimateIn key={step} delay={i * 120}>
                 <TiltCard className="relative rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 sm:p-7 h-full card-hover">
                   <div className="mb-5 flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: "rgba(255,45,120,0.1)" }}>{icon}</div>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl" style={{ backgroundColor: "rgba(232,168,56,0.1)" }}>{icon}</div>
                     <span className="text-3xl sm:text-4xl font-bold text-[#1E1E1E]" style={{ fontFamily: "var(--font-dm-sans)" }}>{step}</span>
                   </div>
                   <h3 className="mb-2 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>{title}</h3>
@@ -361,10 +397,10 @@ export default function Home() {
             {/* Card */}
             <AnimateIn direction="left">
               <div className="relative mx-auto max-w-sm w-full">
-                <div className="absolute inset-0 -z-10 rounded-2xl bg-[#FF2D78]/15 blur-xl animate-glow-pulse" />
-                <TiltCard className="rounded-2xl border border-[#FF2D78]/20 bg-[#141414] p-5 sm:p-6">
+                <div className="absolute inset-0 -z-10 rounded-2xl bg-[#E8A838]/15 blur-xl animate-glow-pulse" />
+                <TiltCard className="rounded-2xl border border-[#E8A838]/20 bg-[#141414] p-5 sm:p-6">
                   <div className="flex items-center gap-4 mb-5">
-                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#FF2D78] to-[#A855F7] flex items-center justify-center text-white font-bold shrink-0">Y</div>
+                    <div className="h-12 w-12 rounded-full bg-gradient-to-br from-[#E8A838] to-[#C23B3B] flex items-center justify-center text-white font-bold shrink-0">Y</div>
                     <div className="flex-1 text-center">
                       <div className="text-4xl sm:text-[42px] font-bold leading-none text-gradient animate-gradient-pan" style={{ fontFamily: "var(--font-dm-sans)" }}>
                         <CountUp target={94} suffix="%" />
@@ -374,7 +410,7 @@ export default function Home() {
                     <div className="h-12 w-12 rounded-full bg-gradient-to-br from-cyan-500 to-teal-400 flex items-center justify-center text-white font-bold shrink-0">J</div>
                   </div>
                   <div className="h-1.5 rounded-full bg-[#2A2A2A] overflow-hidden mb-4">
-                    <div className="h-full w-[94%] rounded-full" style={{ background: "linear-gradient(90deg,#FF2D78,#A855F7)" }} />
+                    <div className="h-full w-[94%] rounded-full" style={{ background: "linear-gradient(90deg,#E8A838,#C23B3B)" }} />
                   </div>
                   <div className="flex gap-2 sm:gap-3 mb-4">
                     {[{ n: "14", l: "shared artists" }, { n: "8", l: "shared songs" }, { n: "5", l: "shared genres" }].map(({ n, l }) => (
@@ -405,10 +441,10 @@ export default function Home() {
                 <ul className="space-y-3 text-sm text-[#A0A0A0]">
                   {[{ label: "Artist overlap", pct: "40%" }, { label: "Genre match", pct: "35%" }, { label: "Era alignment", pct: "15%" }, { label: "Listening energy", pct: "10%" }].map(({ label, pct }) => (
                     <li key={label} className="flex items-center gap-3">
-                      <div className="h-1.5 w-1.5 rounded-full bg-[#FF2D78] shrink-0" />
+                      <div className="h-1.5 w-1.5 rounded-full bg-[#E8A838] shrink-0" />
                       <span>{label}</span>
                       <div className="flex-1 h-px bg-[#1E1E1E]" />
-                      <span className="font-semibold" style={{ color: "#FF6FA3" }}>{pct}</span>
+                      <span className="font-semibold" style={{ color: "#F0C060" }}>{pct}</span>
                     </li>
                   ))}
                 </ul>
@@ -421,7 +457,7 @@ export default function Home() {
       {/* ── Try the demo ── */}
       <section className="border-b border-[#1E1E1E] px-4 sm:px-6 py-16 sm:py-20 relative overflow-hidden">
         <div className="pointer-events-none absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(168,85,247,0.1) 0%, transparent 65%)" }} />
+          style={{ background: "radial-gradient(ellipse at 50% 100%, rgba(194,59,59,0.1) 0%, transparent 65%)" }} />
         <AnimateIn className="relative mx-auto max-w-3xl text-center">
           <p className="text-xs sm:text-sm font-medium uppercase tracking-widest mb-4 text-gradient" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Interactive demo
@@ -434,13 +470,13 @@ export default function Home() {
           </p>
           <a href="/demo"
             className="btn-primary inline-flex items-center gap-2 rounded-full px-6 sm:px-8 py-3 sm:py-3.5 text-sm sm:text-base font-semibold text-white"
-            style={{ fontFamily: "var(--font-dm-sans)", boxShadow: "0 8px 32px rgba(255,45,120,0.3)" }}>
+            style={{ fontFamily: "var(--font-dm-sans)", boxShadow: "0 8px 32px rgba(232,168,56,0.3)" }}>
             Try the demo →
           </a>
         </AnimateIn>
       </section>
 
-      {/* ── Features ── */}
+      {/* ── Feature Highlights ── */}
       <section className="border-b border-[#1E1E1E] px-4 sm:px-6 py-16 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <AnimateIn className="mb-10 sm:mb-14 text-center">
@@ -452,22 +488,134 @@ export default function Home() {
             </h2>
           </AnimateIn>
 
-          <div className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2">
-            {[
-              { title: "Now Playing", accent: "from-[#FF2D78]/12", body: "See what people are listening to right now. The actual song, live — not a playlist from last month.", icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="11" cy="11" r="10" stroke="#FF2D78" strokeWidth="1.5"/><circle cx="11" cy="11" r="3" fill="#FF2D78"/><path d="M11 1v3M11 18v3M1 11h3M18 11h3" stroke="#FF2D78" strokeWidth="1.5" strokeLinecap="round" opacity="0.4"/></svg> },
-              { title: "Taste DNA", accent: "from-[#A855F7]/12", body: "Your genre breakdown, personality label, and top artists — visualized. Shareable in one tap.", icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M2 16h4v4H2zM8 10h4v10H8zM14 6h4v14h-4z" fill="#A855F7"/></svg> },
-              { title: "Music Feed", accent: "from-[#FF2D78]/10", body: "Auto-generated posts from listening data — milestones, discoveries, monthly wraps. The app posts so you don't have to.", icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="3" width="6" height="6" rx="1.5" fill="#FF2D78"/><rect x="10" y="3" width="10" height="2.5" rx="1" fill="#FF2D78" opacity="0.4"/><rect x="10" y="7" width="7" height="2" rx="1" fill="#FF2D78" opacity="0.25"/><rect x="2" y="11" width="6" height="6" rx="1.5" fill="#FF2D78" opacity="0.5"/><rect x="10" y="11" width="10" height="2.5" rx="1" fill="#FF2D78" opacity="0.4"/><rect x="10" y="15" width="7" height="2" rx="1" fill="#FF2D78" opacity="0.25"/></svg> },
-              { title: "Mutual Connect", accent: "from-[#A855F7]/12", body: "Follow anyone freely. DMs unlock only when both say yes — so every conversation starts with real mutual interest.", icon: <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M4 4h14a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H7l-4 3V5a1 1 0 0 1 1-1z" stroke="#A855F7" strokeWidth="1.5" strokeLinejoin="round"/></svg> },
-            ].map(({ title, body, icon, accent }, i) => (
-              <AnimateIn key={title} delay={i * 80}>
-                <TiltCard className={`relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 sm:p-7 h-full card-hover`}>
-                  <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${accent} to-transparent opacity-60`} />
-                  <div className="relative">
-                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E1E1E]">{icon}</div>
-                    <h3 className="mb-2 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>{title}</h3>
-                    <p className="text-sm text-[#A0A0A0] leading-relaxed">{body}</p>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {/* 1 — Compatibility */}
+            <AnimateIn delay={0}>
+              <TiltCard className="relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 sm:p-7 h-full card-hover">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#E8A838]/10 to-transparent" />
+                <div className="relative">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E1E1E]">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="7" cy="11" r="5" stroke="#E8A838" strokeWidth="1.5"/><circle cx="15" cy="11" r="5" stroke="#E8A838" strokeWidth="1.5" opacity="0.6"/></svg>
                   </div>
-                </TiltCard>
+                  <h3 className="mb-1 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>Compatibility Score</h3>
+                  <p className="text-xs font-medium mb-2" style={{ color: "#E8A838" }}>Not just the same artist. The same feeling.</p>
+                  <p className="text-sm text-[#A0A0A0] leading-relaxed">Built from artist overlap, genre match, era alignment, and listening energy. The difference between someone who likes rap and someone who listens to the same corner of rap you do at 2am.</p>
+                </div>
+              </TiltCard>
+            </AnimateIn>
+
+            {/* 2 — Music Museum */}
+            <AnimateIn delay={80}>
+              <TiltCard className="relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 sm:p-7 h-full card-hover">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#C23B3B]/8 to-transparent" />
+                <div className="relative">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E1E1E]">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="2" y="6" width="18" height="13" rx="2" stroke="#C23B3B" strokeWidth="1.5"/><path d="M7 6V4a2 2 0 0 1 4 0v2" stroke="#C23B3B" strokeWidth="1.5" strokeLinecap="round"/></svg>
+                  </div>
+                  <h3 className="mb-1 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>Music Museum</h3>
+                  <p className="text-xs font-medium mb-2" style={{ color: "#C23B3B" }}>Your taste. Your history. Your identity.</p>
+                  <p className="text-sm text-[#A0A0A0] leading-relaxed">A living archive of everything you've ever listened to — week, month, year, all time. Watch your taste evolve. Show people exactly who you are through what you actually play.</p>
+                </div>
+              </TiltCard>
+            </AnimateIn>
+
+            {/* 3 — OG Fan Tracker */}
+            <AnimateIn delay={160}>
+              <TiltCard className="relative overflow-hidden rounded-2xl border bg-[#141414] p-6 sm:p-7 h-full card-hover" style={{ borderColor: "rgba(255,215,0,0.2)" }}>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#FFD700]/8 to-transparent" />
+                <div className="relative">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl" style={{ backgroundColor: "rgba(255,215,0,0.1)" }}>
+                    <span className="text-xl">🏆</span>
+                  </div>
+                  <h3 className="mb-1 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>OG Fan Tracker</h3>
+                  <p className="text-xs font-medium mb-2" style={{ color: "#FFD700" }}>You heard them first. Now you can prove it.</p>
+                  <p className="text-sm text-[#A0A0A0] leading-relaxed mb-3">When you listen to an artist before they blow up, we lock that timestamp. If they hit a million streams later, you were there first — Tunect has the receipts.</p>
+                  <div className="flex flex-col gap-1.5">
+                    {[
+                      { badge: "🌟 Founder", desc: "Before 1K listeners" },
+                      { badge: "🔥 Day One", desc: "Before 10K listeners" },
+                      { badge: "🔥 OG Fan", desc: "Before 100K listeners" },
+                    ].map(({ badge, desc }) => (
+                      <div key={badge} className="flex items-center gap-2 text-xs text-[#A0A0A0]">
+                        <span>{badge}</span>
+                        <span className="text-[#505050]">—</span>
+                        <span>{desc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </TiltCard>
+            </AnimateIn>
+
+            {/* 4 — Wraps Hall of Fame */}
+            <AnimateIn delay={240}>
+              <TiltCard className="relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 sm:p-7 h-full card-hover">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#1DB954]/6 to-transparent" />
+                <div className="relative">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E1E1E]">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="3" y="4" width="7" height="14" rx="1.5" fill="#1DB954" opacity="0.8"/><rect x="12" y="8" width="7" height="10" rx="1.5" fill="#1DB954" opacity="0.5"/></svg>
+                  </div>
+                  <h3 className="mb-1 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>Wraps Hall of Fame</h3>
+                  <p className="text-xs font-medium mb-2 text-[#1DB954]">Your Wrapped deserves to live forever.</p>
+                  <p className="text-sm text-[#A0A0A0] leading-relaxed">Every year it disappears by January. Not anymore. Tunect archives every Wrapped on your profile — a permanent, scrollable record of your musical years.</p>
+                </div>
+              </TiltCard>
+            </AnimateIn>
+
+            {/* 5 — Mutual Connect */}
+            <AnimateIn delay={320} className="sm:col-span-2 lg:col-span-1">
+              <TiltCard className="relative overflow-hidden rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 sm:p-7 h-full card-hover">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#E8A838]/10 to-transparent" />
+                <div className="relative">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#1E1E1E]">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><circle cx="9" cy="8" r="3.5" fill="#E8A838"/><circle cx="15" cy="8" r="3.5" fill="#E8A838" opacity="0.6"/><path d="M2 20c0-3.31 3.13-6 7-6s7 2.69 7 6" stroke="#E8A838" strokeWidth="1.5" strokeLinecap="round"/><path d="M17 14c2.21 0 4 1.79 4 4" stroke="#E8A838" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/></svg>
+                  </div>
+                  <h3 className="mb-1 text-base sm:text-lg font-semibold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>Mutual Connect</h3>
+                  <p className="text-xs font-medium mb-2" style={{ color: "#E8A838" }}>Every conversation starts with real interest.</p>
+                  <p className="text-sm text-[#A0A0A0] leading-relaxed">Follow anyone freely. DMs, comments, and interactions only unlock when both of you connect. No cold messages. Just people who actually want to talk.</p>
+                </div>
+              </TiltCard>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Badge Showcase ── */}
+      <section className="border-b border-[#1E1E1E] px-4 sm:px-6 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <AnimateIn className="mb-10 sm:mb-14 text-center">
+            <p className="text-xs sm:text-sm font-medium mb-3 uppercase tracking-widest text-gradient" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              Badge System
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              Earn your badge. Wear your taste.
+            </h2>
+            <p className="text-[#A0A0A0] text-base max-w-md mx-auto">
+              Badges are earned automatically from your listening data. No self-reporting. No faking it.
+            </p>
+          </AnimateIn>
+
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { icon: "🎵", label: "Soul Keeper",    sub: "Neo-Soul / R&B dominant" },
+              { icon: "🤘", label: "Trap Lord",       sub: "40%+ Trap / Rap" },
+              { icon: "🎸", label: "Indie Kid",       sub: "Indie Rock / Folk" },
+              { icon: "🎷", label: "Jazz Head",       sub: "30%+ Jazz" },
+              { icon: "⚡", label: "Metal Warrior",   sub: "40%+ Metal" },
+              { icon: "🦉", label: "Night Owl",       sub: "Listens past midnight" },
+              { icon: "🌊", label: "Deep Diver",      sub: "Full albums only" },
+              { icon: "🔁", label: "Loyalist",        sub: "Same #1 for 3+ months" },
+              { icon: "🌀", label: "Genre Hopper",    sub: "6+ genres, no dominant" },
+              { icon: "🌟", label: "Founder",         sub: "Found them before 1K" },
+              { icon: "🔥", label: "Day One",         sub: "Found them before 10K" },
+              { icon: "🔥", label: "OG Fan",          sub: "Found them before 100K" },
+            ].map(({ icon, label, sub }, i) => (
+              <AnimateIn key={label} delay={i * 40}>
+                <div className="group rounded-2xl border border-[#2A2A2A] bg-[#141414] px-4 py-3 text-center card-hover cursor-default" style={{ minWidth: 110 }}>
+                  <div className="text-2xl mb-1">{icon}</div>
+                  <p className="text-white text-xs font-semibold">{label}</p>
+                  <p className="text-[#505050] text-[10px] mt-0.5">{sub}</p>
+                </div>
               </AnimateIn>
             ))}
           </div>
@@ -515,7 +663,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a href="#waitlist" className="block w-full rounded-full border border-[#2A2A2A] py-3 text-center text-sm font-semibold text-[#A0A0A0] transition-all hover:border-[#FF2D78]/40 hover:text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>
+                <a href="#waitlist" className="block w-full rounded-full border border-[#2A2A2A] py-3 text-center text-sm font-semibold text-[#A0A0A0] transition-all hover:border-[#E8A838]/40 hover:text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>
                   Join waitlist
                 </a>
               </TiltCard>
@@ -523,11 +671,11 @@ export default function Home() {
 
             {/* Pro */}
             <AnimateIn direction="right" delay={80}>
-              <TiltCard className="relative rounded-2xl border bg-[#141414] p-6 sm:p-8 h-full card-hover overflow-hidden" style={{ borderColor: "rgba(255,45,120,0.35)" }}>
+              <TiltCard className="relative rounded-2xl border bg-[#141414] p-6 sm:p-8 h-full card-hover overflow-hidden" style={{ borderColor: "rgba(232,168,56,0.35)" }}>
                 {/* glow */}
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#FF2D78]/8 via-[#A855F7]/5 to-transparent" />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#E8A838]/8 via-[#C23B3B]/5 to-transparent" />
                 {/* Best value badge */}
-                <div className="absolute top-4 right-4 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg,#FF2D78,#A855F7)", color: "#fff" }}>
+                <div className="absolute top-4 right-4 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider" style={{ background: "linear-gradient(135deg,#E8A838,#C23B3B)", color: "#fff" }}>
                   Best value
                 </div>
                 <div className="relative mb-6">
@@ -536,7 +684,7 @@ export default function Home() {
                     <span className="text-4xl font-bold text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>$2.99</span>
                     <span className="text-[#A0A0A0] text-sm">/month</span>
                   </div>
-                  <p className="text-[#A0A0A0] text-sm mt-1">or <span className="text-white font-semibold">$24.99/year</span> <span className="text-[#FF6FA3] text-xs font-medium">— save 30%</span></p>
+                  <p className="text-[#A0A0A0] text-sm mt-1">or <span className="text-white font-semibold">$24.99/year</span> <span className="text-[#F0C060] text-xs font-medium">— save 30%</span></p>
                 </div>
                 <ul className="relative space-y-3 mb-8">
                   {[
@@ -550,7 +698,7 @@ export default function Home() {
                     "Pro badge on your profile",
                   ].map((f, i) => (
                     <li key={f} className="flex items-start gap-2.5 text-sm text-[#A0A0A0]">
-                      <svg className="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(255,45,120,0.12)" stroke="rgba(255,45,120,0.3)" strokeWidth="1.5"/><path d="M5 8l2 2 4-4" stroke={i === 0 ? "#A0A0A0" : "#FF2D78"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                      <svg className="mt-0.5 shrink-0" width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="7" fill="rgba(232,168,56,0.12)" stroke="rgba(232,168,56,0.3)" strokeWidth="1.5"/><path d="M5 8l2 2 4-4" stroke={i === 0 ? "#A0A0A0" : "#E8A838"} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       <span className={i === 0 ? "" : "text-white"}>{f}</span>
                     </li>
                   ))}
@@ -565,10 +713,55 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Research / Trust ── */}
+      <section className="border-b border-[#1E1E1E] px-4 sm:px-6 py-16 sm:py-24">
+        <div className="mx-auto max-w-6xl">
+          <AnimateIn className="mb-10 sm:mb-14 text-center">
+            <p className="text-xs sm:text-sm font-medium mb-3 uppercase tracking-widest text-gradient" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              Science
+            </p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-white mb-3" style={{ fontFamily: "var(--font-dm-sans)" }}>
+              Science already knew it. We built it.
+            </h2>
+            <p className="text-[#A0A0A0] text-base max-w-md mx-auto">
+              Researchers have known for decades that shared music taste creates deeper bonds than almost anything else.
+            </p>
+          </AnimateIn>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {[
+              {
+                quote: "Shared music preferences create interpersonal bonds because music taste signals similar value orientations — and similarity in values drives social attraction.",
+                source: "Personality & Social Psychology Bulletin",
+                icon: "🧬",
+              },
+              {
+                quote: "Music taste can act as an honest signal of the group we belong to, revealing where and when we grew up.",
+                source: "University of Oxford",
+                icon: "🎓",
+              },
+              {
+                quote: "Listening to music increases levels of cooperation, interaction, and conversation.",
+                source: "Research in Psychotherapy, 2024",
+                icon: "🤝",
+              },
+            ].map(({ quote, source, icon }, i) => (
+              <AnimateIn key={source} delay={i * 100}>
+                <TiltCard className="rounded-2xl border border-[#2A2A2A] bg-[#141414] p-6 h-full card-hover">
+                  <div className="text-2xl mb-4">{icon}</div>
+                  <p className="text-[#A0A0A0] text-sm leading-relaxed mb-4 italic">"{quote}"</p>
+                  <p className="text-[#505050] text-xs font-semibold">— {source}</p>
+                </TiltCard>
+              </AnimateIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── CTA ── */}
       <section id="waitlist" className="px-4 sm:px-6 py-20 sm:py-28 relative overflow-hidden">
         <div className="animate-orb-a pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full blur-[120px]"
-          style={{ background: "radial-gradient(ellipse, rgba(255,45,120,0.1) 0%, rgba(168,85,247,0.07) 50%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(ellipse, rgba(232,168,56,0.1) 0%, rgba(194,59,59,0.07) 50%, transparent 70%)" }} />
         <AnimateIn className="relative mx-auto max-w-2xl text-center">
           <h2 className="mb-4 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white" style={{ fontFamily: "var(--font-dm-sans)" }}>
             Music is how you know someone.

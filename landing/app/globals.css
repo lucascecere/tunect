@@ -1,13 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #FF2D78;
-  --color-primary-mid: #FF6FA3;
-  --color-primary-light: #FFB3CC;
-  --color-primary-ghost: rgba(255, 45, 120, 0.13);
+  --color-primary: #E8A838;
+  --color-primary-mid: #F0C060;
+  --color-primary-light: #F5DFA0;
+  --color-primary-ghost: rgba(232, 168, 56, 0.13);
 
-  --color-accent: #A855F7;
-  --color-accent-light: #D8B4FE;
+  --color-accent: #C23B3B;
+  --color-accent-light: #E07070;
 
   --color-surface: #141414;
   --color-elevated: #1E1E1E;
@@ -110,8 +110,8 @@ body {
 
 /* Border glow pulse */
 @keyframes border-glow {
-  0%, 100% { border-color: rgba(255,45,120,0.15); }
-  50%       { border-color: rgba(255,45,120,0.4); }
+  0%, 100% { border-color: rgba(232,168,56,0.15); }
+  50%       { border-color: rgba(232,168,56,0.4); }
 }
 
 /* ── Utility classes ── */
@@ -173,13 +173,13 @@ body {
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .card-hover:hover {
-  border-color: rgba(255,45,120,0.3) !important;
-  box-shadow: 0 0 0 1px rgba(255,45,120,0.1), 0 12px 40px rgba(0,0,0,0.4);
+  border-color: rgba(232,168,56,0.3) !important;
+  box-shadow: 0 0 0 1px rgba(232,168,56,0.1), 0 12px 40px rgba(0,0,0,0.4);
 }
 
 /* Gradient text */
 .text-gradient {
-  background: linear-gradient(90deg, #FF2D78, #A855F7);
+  background: linear-gradient(90deg, #E8A838, #C23B3B);
   background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -191,7 +191,7 @@ body {
 .btn-primary {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #FF2D78, #A855F7);
+  background: linear-gradient(135deg, #E8A838, #C23B3B);
   transition: opacity 0.2s, transform 0.2s;
 }
 

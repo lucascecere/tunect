@@ -93,8 +93,8 @@ function TrackCard({ track, artist, type }: { track: string; artist: string; typ
       </div>
       {type === "now_playing" && (
         <div className="flex items-center gap-1 shrink-0">
-          <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ backgroundColor: "#FF2D78" }} />
-          <span className="text-[10px]" style={{ color: "#FF2D78" }}>live</span>
+          <span className="w-1.5 h-1.5 rounded-full animate-pulse-dot" style={{ backgroundColor: "#E8A838" }} />
+          <span className="text-[10px]" style={{ color: "#E8A838" }}>live</span>
         </div>
       )}
     </div>
@@ -141,8 +141,8 @@ function PostCard({ post, go, liked, onLike }: { post: Post; go: (s: Screen, id?
           {post.topArtists?.map((a, i) => (
             <p key={a} className="text-[#A0A0A0] text-xs">{i + 1}. {a}</p>
           ))}
-          <div className="mt-2 inline-block rounded-full px-2 py-0.5" style={{ backgroundColor: "rgba(255,45,120,0.12)", border: "1px solid rgba(255,45,120,0.3)" }}>
-            <span className="text-[10px] font-semibold" style={{ color: "#FF2D78" }}>{post.personalityLabel}</span>
+          <div className="mt-2 inline-block rounded-full px-2 py-0.5" style={{ backgroundColor: "rgba(232,168,56,0.12)", border: "1px solid rgba(232,168,56,0.3)" }}>
+            <span className="text-[10px] font-semibold" style={{ color: "#E8A838" }}>{post.personalityLabel}</span>
           </div>
         </div>
       )}
@@ -168,8 +168,8 @@ function PostCard({ post, go, liked, onLike }: { post: Post; go: (s: Screen, id?
       {/* Reactions */}
       <div className="flex items-center gap-4 mt-2.5">
         <button onClick={onLike} className="flex items-center gap-1.5 transition-opacity active:opacity-60">
-          <span className="text-sm" style={{ color: liked ? "#FF2D78" : "#505050" }}>{liked ? "♥" : "♡"}</span>
-          <span className="text-xs" style={{ color: liked ? "#FF2D78" : "#505050" }}>{post.likes + (liked ? 1 : 0)}</span>
+          <span className="text-sm" style={{ color: liked ? "#E8A838" : "#505050" }}>{liked ? "♥" : "♡"}</span>
+          <span className="text-xs" style={{ color: liked ? "#E8A838" : "#505050" }}>{post.likes + (liked ? 1 : 0)}</span>
         </button>
         <button className="flex items-center gap-1.5">
           <span className="text-sm text-[#505050]">💬</span>
@@ -207,9 +207,9 @@ export function FeedScreen({ go }: Props) {
               onClick={() => setMode(m)}
               className="flex-1 py-2 text-sm font-semibold transition-all"
               style={{
-                backgroundColor: mode === m ? "rgba(255,45,120,0.12)" : "transparent",
-                color: mode === m ? "#FF2D78" : "#505050",
-                borderBottom: mode === m ? "2px solid #FF2D78" : "2px solid transparent",
+                backgroundColor: mode === m ? "rgba(232,168,56,0.12)" : "transparent",
+                color: mode === m ? "#E8A838" : "#505050",
+                borderBottom: mode === m ? "2px solid #E8A838" : "2px solid transparent",
               }}
             >
               {m}
