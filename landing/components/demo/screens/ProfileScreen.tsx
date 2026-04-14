@@ -9,9 +9,9 @@ interface Props {
 
 type Timeframe = "Week" | "Month" | "Year" | "All Time";
 
-const AMBER = "#E8A838";
-const AMBER_BG = "rgba(232,168,56,0.1)";
-const AMBER_BORDER = "rgba(232,168,56,0.25)";
+const AMBER = "#FF2D78";
+const AMBER_BG = "rgba(255,45,120,0.1)";
+const AMBER_BORDER = "rgba(255,45,120,0.25)";
 const GREEN = "#4CAF7D";
 const OG_GOLD = "#FFD700";
 

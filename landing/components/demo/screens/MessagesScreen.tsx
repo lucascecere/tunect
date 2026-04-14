@@ -70,7 +70,7 @@ export function MessagesScreen({ go }: Props) {
       <div className="h-full flex flex-col bg-[#0A0A0A]">
         {/* Header */}
         <div className="flex items-center gap-3 px-4 py-3 shrink-0" style={{ borderBottom: "1px solid #1E1E1E" }}>
-          <button onClick={() => setOpenId(null)} className="text-sm font-medium" style={{ color: "#E8A838" }}>←</button>
+          <button onClick={() => setOpenId(null)} className="text-sm font-medium" style={{ color: "#FF2D78" }}>←</button>
           <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${openConvo.color} flex items-center justify-center text-white text-sm font-bold shrink-0`}>
             {openConvo.name[0]}
           </div>
@@ -88,7 +88,7 @@ export function MessagesScreen({ go }: Props) {
                 className="max-w-[72%] rounded-2xl px-3 py-2 text-sm"
                 style={
                   m.from === "me"
-                    ? { background: "linear-gradient(135deg, #E8A838, #C23B3B)", color: "#fff", borderBottomRightRadius: 4 }
+                    ? { background: "linear-gradient(135deg, #FF2D78, #A855F7)", color: "#fff", borderBottomRightRadius: 4 }
                     : { backgroundColor: "#1E1E1E", color: "#fff", borderBottomLeftRadius: 4 }
                 }
               >
@@ -108,7 +108,7 @@ export function MessagesScreen({ go }: Props) {
               <button
                 onClick={() => useStarter(openConvo.starter!.split("—")[1]?.trim().replace(/[".]$/, "") ?? "")}
                 className="text-[10px] font-semibold rounded-full px-2.5 py-1"
-                style={{ background: "linear-gradient(135deg, #E8A838, #C23B3B)", color: "#fff" }}
+                style={{ background: "linear-gradient(135deg, #FF2D78, #A855F7)", color: "#fff" }}
               >
                 Use
               </button>
@@ -136,7 +136,7 @@ export function MessagesScreen({ go }: Props) {
           <button
             onClick={sendMessage}
             className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 text-white text-sm"
-            style={{ background: "linear-gradient(135deg, #E8A838, #C23B3B)" }}
+            style={{ background: "linear-gradient(135deg, #FF2D78, #A855F7)" }}
           >
             ↑
           </button>
@@ -172,7 +172,7 @@ export function MessagesScreen({ go }: Props) {
                 <p className={`text-xs truncate ${c.unread > 0 ? "text-white font-medium" : "text-[#A0A0A0]"}`}>{c.preview}</p>
               </div>
               {c.unread > 0 && (
-                <div className="w-5 h-5 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0" style={{ background: "linear-gradient(135deg, #E8A838, #C23B3B)" }}>
+                <div className="w-5 h-5 rounded-full flex items-center justify-center text-white text-[10px] font-bold shrink-0" style={{ background: "linear-gradient(135deg, #FF2D78, #A855F7)" }}>
                   {c.unread}
                 </div>
               )}

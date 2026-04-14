@@ -8,7 +8,7 @@ interface Props {
 }
 
 function DiscoverIcon({ active }: { active: boolean }) {
-  const c = active ? "#E8A838" : "#505050";
+  const c = active ? "#FF2D78" : "#505050";
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <circle cx="9.5" cy="9.5" r="6" stroke={c} strokeWidth="1.5" />
@@ -18,7 +18,7 @@ function DiscoverIcon({ active }: { active: boolean }) {
 }
 
 function FeedIcon({ active }: { active: boolean }) {
-  const c = active ? "#E8A838" : "#505050";
+  const c = active ? "#FF2D78" : "#505050";
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <rect x="3" y="4" width="7" height="7" rx="1.5" stroke={c} strokeWidth="1.5" />
@@ -30,7 +30,7 @@ function FeedIcon({ active }: { active: boolean }) {
 }
 
 function ExploreIcon({ active }: { active: boolean }) {
-  const c = active ? "#E8A838" : "#505050";
+  const c = active ? "#FF2D78" : "#505050";
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <circle cx="11" cy="11" r="8.5" stroke={c} strokeWidth="1.5" />
@@ -41,7 +41,7 @@ function ExploreIcon({ active }: { active: boolean }) {
 }
 
 function ChatIcon({ active }: { active: boolean }) {
-  const c = active ? "#E8A838" : "#505050";
+  const c = active ? "#FF2D78" : "#505050";
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <path
@@ -53,7 +53,7 @@ function ChatIcon({ active }: { active: boolean }) {
 }
 
 function PersonIcon({ active }: { active: boolean }) {
-  const c = active ? "#E8A838" : "#505050";
+  const c = active ? "#FF2D78" : "#505050";
   return (
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
       <circle cx="11" cy="7" r="4" stroke={c} strokeWidth="1.5" />
@@ -77,13 +77,13 @@ export function TabBar({ active, go }: Props) {
       {/* Discover */}
       <button onClick={() => go("discover")} className="flex flex-col items-center gap-0.5 pt-2">
         <DiscoverIcon active={isDiscover} />
-        <span className="text-[9px] font-medium" style={{ color: isDiscover ? "#E8A838" : "#505050" }}>Discover</span>
+        <span className="text-[9px] font-medium" style={{ color: isDiscover ? "#FF2D78" : "#505050" }}>Discover</span>
       </button>
 
       {/* Feed */}
       <button onClick={() => go("feed")} className="flex flex-col items-center gap-0.5 pt-2">
         <FeedIcon active={isFeed} />
-        <span className="text-[9px] font-medium" style={{ color: isFeed ? "#E8A838" : "#505050" }}>Feed</span>
+        <span className="text-[9px] font-medium" style={{ color: isFeed ? "#FF2D78" : "#505050" }}>Feed</span>
       </button>
 
       {/* Center — Explore */}
@@ -93,9 +93,9 @@ export function TabBar({ active, go }: Props) {
         style={{
           width: 52, height: 52, marginBottom: 14, flexShrink: 0,
           background: isExplore
-            ? "linear-gradient(135deg, #C23B3B, #E8A838)"
-            : "linear-gradient(135deg, #E8A838, #C23B3B)",
-          boxShadow: "0 4px 20px rgba(232,168,56,0.45)",
+            ? "linear-gradient(135deg, #A855F7, #FF2D78)"
+            : "linear-gradient(135deg, #FF2D78, #A855F7)",
+          boxShadow: "0 4px 20px rgba(255,45,120,0.45)",
         }}
       >
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -108,13 +108,13 @@ export function TabBar({ active, go }: Props) {
       {/* Messages */}
       <button onClick={() => go("messages")} className="flex flex-col items-center gap-0.5 pt-2">
         <ChatIcon active={isMessages} />
-        <span className="text-[9px] font-medium" style={{ color: isMessages ? "#E8A838" : "#505050" }}>Messages</span>
+        <span className="text-[9px] font-medium" style={{ color: isMessages ? "#FF2D78" : "#505050" }}>Messages</span>
       </button>
 
       {/* Profile */}
       <button onClick={() => go("profile")} className="flex flex-col items-center gap-0.5 pt-2">
         <PersonIcon active={isProfile} />
-        <span className="text-[9px] font-medium" style={{ color: isProfile ? "#E8A838" : "#505050" }}>Profile</span>
+        <span className="text-[9px] font-medium" style={{ color: isProfile ? "#FF2D78" : "#505050" }}>Profile</span>
       </button>
     </div>
   );

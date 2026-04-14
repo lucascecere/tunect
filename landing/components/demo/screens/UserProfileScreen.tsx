@@ -8,9 +8,9 @@ interface Props {
   userId?: string;
 }
 
-const AMBER = "#E8A838";
-const AMBER_BG = "rgba(232,168,56,0.1)";
-const AMBER_BORDER = "rgba(232,168,56,0.25)";
+const AMBER = "#FF2D78";
+const AMBER_BG = "rgba(255,45,120,0.1)";
+const AMBER_BORDER = "rgba(255,45,120,0.25)";
 const GREEN = "#4CAF7D";
 const OG_GOLD = "#FFD700";
 
@@ -227,7 +227,7 @@ export function UserProfileScreen({ go, userId }: Props) {
             backgroundColor: connectState === "connect" ? AMBER : connectState === "connected" ? "rgba(76,175,125,0.12)" : "#141414",
             color: connectState === "connect" ? "#000" : connectState === "connected" ? GREEN : "#505050",
             border: connectState === "connect" ? "none" : connectState === "connected" ? "1px solid rgba(76,175,125,0.3)" : "1px solid #2A2A2A",
-            boxShadow: connectState === "connect" ? `0 4px 16px rgba(232,168,56,0.3)` : "none",
+            boxShadow: connectState === "connect" ? `0 4px 16px rgba(255,45,120,0.3)` : "none",
           }}
         >
           {connectState === "connected" ? "Connected ✓" : connectState === "requested" ? "Requested" : "Connect"}
@@ -237,7 +237,7 @@ export function UserProfileScreen({ go, userId }: Props) {
       {/* Listening Together banner */}
       {listeningTogether && (
         <div className="mx-4 mb-4 rounded-2xl p-3.5 flex items-center gap-3"
-          style={{ background: "linear-gradient(135deg, rgba(76,175,125,0.1), rgba(232,168,56,0.08))", border: "1px solid rgba(76,175,125,0.3)" }}>
+          style={{ background: "linear-gradient(135deg, rgba(76,175,125,0.1), rgba(255,45,120,0.08))", border: "1px solid rgba(76,175,125,0.3)" }}>
           <div className="relative shrink-0 flex items-center justify-center" style={{ width: 36, height: 36 }}>
             <div className="absolute inset-0 rounded-full animate-ping" style={{ backgroundColor: "rgba(76,175,125,0.2)" }} />
             <div className="relative w-8 h-8 rounded-full flex items-center justify-center"
